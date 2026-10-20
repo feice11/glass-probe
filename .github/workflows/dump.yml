@@ -36,7 +36,7 @@ jobs:
         run: |
           set +e -x
           RT=$(xcrun simctl list runtimes | grep -o 'com.apple.CoreSimulator.SimRuntime.iOS-26-5' | head -1)
-          TYPE=$(xcrun simctl list devicetypes | grep -F "iPhone 17 Pro Max (" | sed -E 's/.*\((com[^)]*)\).*//' | head -1)
+          TYPE=com.apple.CoreSimulator.SimDeviceType.iPhone-17-Pro-Max
           UDID=$(xcrun simctl create probe "$TYPE" "$RT")
           xcrun simctl boot "$UDID"
           xcrun simctl bootstatus "$UDID" -b
