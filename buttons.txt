@@ -1,0 +1,68 @@
+light filled UIButton bg=- layer=- frame=(20.0, 200.0, 200.0, 50.0)
+light filled  _UISystemBackgroundView bg=- layer=- frame=(0.0, 0.0, 200.0, 50.0)
+light filled   UIView bg=0.000000 0.533333 1.000000 1.000000 layer=0.000000,0.533333,1.000000,1.000000 kCGColorSpaceSRGB frame=(0.0, 0.0, 200.0, 50.0)
+light filled   UIView bg=- layer=- frame=(0.0, 0.0, 200.0, 50.0)
+light filled    UILabel bg=0.000000 0.000000 0.000000 0.000000 layer=- frame=(74.33333333333334, 14.66666666666667, 51.0, 20.333333333333332) text=1.000000 1.000000 1.000000 1.000000
+light tinted UIButton bg=- layer=- frame=(20.0, 200.0, 200.0, 50.0)
+light tinted  _UISystemBackgroundView bg=- layer=- frame=(0.0, 0.0, 200.0, 50.0)
+light tinted   UIView bg=0.000000 0.533333 1.000000 0.180000 layer=0.000000,0.533333,1.000000,0.180000 kCGColorSpaceSRGB frame=(0.0, 0.0, 200.0, 50.0)
+light tinted   UIView bg=- layer=- frame=(0.0, 0.0, 200.0, 50.0)
+light tinted    UILabel bg=0.000000 0.000000 0.000000 0.000000 layer=- frame=(74.33333333333334, 14.66666666666667, 51.0, 20.333333333333332) text=0.000000 0.533333 1.000000 1.000000
+light gray UIButton bg=- layer=- frame=(20.0, 200.0, 200.0, 50.0)
+light gray  _UISystemBackgroundView bg=- layer=- frame=(0.0, 0.0, 200.0, 50.0)
+light gray   UIView bg=0.470588 0.470588 0.501961 0.160000 layer=0.470588,0.470588,0.501961,0.160000 kCGColorSpaceExtendedSRGB frame=(0.0, 0.0, 200.0, 50.0)
+light gray   UIView bg=- layer=- frame=(0.0, 0.0, 200.0, 50.0)
+light gray    UILabel bg=0.000000 0.000000 0.000000 0.000000 layer=- frame=(74.33333333333334, 14.66666666666667, 51.0, 20.333333333333332) text=0.000000 0.000000 0.000000 1.000000
+light plain UIButton bg=- layer=- frame=(20.0, 200.0, 200.0, 50.0)
+light plain  _UISystemBackgroundView bg=- layer=- frame=(0.0, 0.0, 200.0, 50.0)
+light plain   UIView bg=- layer=- frame=(0.0, 0.0, 200.0, 50.0)
+light plain    UILabel bg=0.000000 0.000000 0.000000 0.000000 layer=- frame=(74.33333333333334, 14.66666666666667, 51.0, 20.333333333333332) text=0.000000 0.533333 1.000000 1.000000
+light borderedProminent UIButton bg=- layer=- frame=(20.0, 200.0, 200.0, 50.0)
+light borderedProminent  _UISystemBackgroundView bg=- layer=- frame=(0.0, 0.0, 200.0, 50.0)
+light borderedProminent   UIView bg=0.000000 0.533333 1.000000 1.000000 layer=0.000000,0.533333,1.000000,1.000000 kCGColorSpaceSRGB frame=(0.0, 0.0, 200.0, 50.0)
+light borderedProminent   UIView bg=- layer=- frame=(0.0, 0.0, 200.0, 50.0)
+light borderedProminent    UILabel bg=0.000000 0.000000 0.000000 0.000000 layer=- frame=(74.33333333333334, 14.66666666666667, 51.0, 20.333333333333332) text=1.000000 1.000000 1.000000 1.000000
+light bordered UIButton bg=- layer=- frame=(20.0, 200.0, 200.0, 50.0)
+light bordered  _UISystemBackgroundView bg=- layer=- frame=(0.0, 0.0, 200.0, 50.0)
+light bordered   UIView bg=0.470588 0.470588 0.501961 0.160000 layer=0.470588,0.470588,0.501961,0.160000 kCGColorSpaceExtendedSRGB frame=(0.0, 0.0, 200.0, 50.0)
+light bordered   UIView bg=- layer=- frame=(0.0, 0.0, 200.0, 50.0)
+light bordered    UILabel bg=0.000000 0.000000 0.000000 0.000000 layer=- frame=(74.33333333333334, 14.66666666666667, 51.0, 20.333333333333332) text=0.000000 0.000000 0.000000 1.000000
+light borderedTinted UIButton bg=- layer=- frame=(20.0, 200.0, 200.0, 50.0)
+light borderedTinted  _UISystemBackgroundView bg=- layer=- frame=(0.0, 0.0, 200.0, 50.0)
+light borderedTinted   UIView bg=0.000000 0.533333 1.000000 0.180000 layer=0.000000,0.533333,1.000000,0.180000 kCGColorSpaceSRGB frame=(0.0, 0.0, 200.0, 50.0)
+light borderedTinted   UIView bg=- layer=- frame=(0.0, 0.0, 200.0, 50.0)
+light borderedTinted    UILabel bg=0.000000 0.000000 0.000000 0.000000 layer=- frame=(74.33333333333334, 14.66666666666667, 51.0, 20.333333333333332) text=0.000000 0.533333 1.000000 1.000000
+dark filled UIButton bg=- layer=- frame=(20.0, 200.0, 200.0, 50.0)
+dark filled  _UISystemBackgroundView bg=- layer=- frame=(0.0, 0.0, 200.0, 50.0)
+dark filled   UIView bg=0.000000 0.568627 1.000000 1.000000 layer=0.000000,0.568627,1.000000,1.000000 kCGColorSpaceSRGB frame=(0.0, 0.0, 200.0, 50.0)
+dark filled   UIView bg=- layer=- frame=(0.0, 0.0, 200.0, 50.0)
+dark filled    UILabel bg=0.000000 0.000000 0.000000 0.000000 layer=- frame=(74.33333333333334, 14.66666666666667, 51.0, 20.333333333333332) text=1.000000 1.000000 1.000000 1.000000
+dark tinted UIButton bg=- layer=- frame=(20.0, 200.0, 200.0, 50.0)
+dark tinted  _UISystemBackgroundView bg=- layer=- frame=(0.0, 0.0, 200.0, 50.0)
+dark tinted   UIView bg=0.000000 0.568627 1.000000 0.250000 layer=0.000000,0.568627,1.000000,0.250000 kCGColorSpaceSRGB frame=(0.0, 0.0, 200.0, 50.0)
+dark tinted   UIView bg=- layer=- frame=(0.0, 0.0, 200.0, 50.0)
+dark tinted    UILabel bg=0.000000 0.000000 0.000000 0.000000 layer=- frame=(74.33333333333334, 14.66666666666667, 51.0, 20.333333333333332) text=0.000000 0.568627 1.000000 1.000000
+dark gray UIButton bg=- layer=- frame=(20.0, 200.0, 200.0, 50.0)
+dark gray  _UISystemBackgroundView bg=- layer=- frame=(0.0, 0.0, 200.0, 50.0)
+dark gray   UIView bg=0.470588 0.470588 0.501961 0.320000 layer=0.470588,0.470588,0.501961,0.320000 kCGColorSpaceExtendedSRGB frame=(0.0, 0.0, 200.0, 50.0)
+dark gray   UIView bg=- layer=- frame=(0.0, 0.0, 200.0, 50.0)
+dark gray    UILabel bg=0.000000 0.000000 0.000000 0.000000 layer=- frame=(74.33333333333334, 14.66666666666667, 51.0, 20.333333333333332) text=1.000000 1.000000 1.000000 1.000000
+dark plain UIButton bg=- layer=- frame=(20.0, 200.0, 200.0, 50.0)
+dark plain  _UISystemBackgroundView bg=- layer=- frame=(0.0, 0.0, 200.0, 50.0)
+dark plain   UIView bg=- layer=- frame=(0.0, 0.0, 200.0, 50.0)
+dark plain    UILabel bg=0.000000 0.000000 0.000000 0.000000 layer=- frame=(74.33333333333334, 14.66666666666667, 51.0, 20.333333333333332) text=0.000000 0.568627 1.000000 1.000000
+dark borderedProminent UIButton bg=- layer=- frame=(20.0, 200.0, 200.0, 50.0)
+dark borderedProminent  _UISystemBackgroundView bg=- layer=- frame=(0.0, 0.0, 200.0, 50.0)
+dark borderedProminent   UIView bg=0.000000 0.568627 1.000000 1.000000 layer=0.000000,0.568627,1.000000,1.000000 kCGColorSpaceSRGB frame=(0.0, 0.0, 200.0, 50.0)
+dark borderedProminent   UIView bg=- layer=- frame=(0.0, 0.0, 200.0, 50.0)
+dark borderedProminent    UILabel bg=0.000000 0.000000 0.000000 0.000000 layer=- frame=(74.33333333333334, 14.66666666666667, 51.0, 20.333333333333332) text=1.000000 1.000000 1.000000 1.000000
+dark bordered UIButton bg=- layer=- frame=(20.0, 200.0, 200.0, 50.0)
+dark bordered  _UISystemBackgroundView bg=- layer=- frame=(0.0, 0.0, 200.0, 50.0)
+dark bordered   UIView bg=0.470588 0.470588 0.501961 0.320000 layer=0.470588,0.470588,0.501961,0.320000 kCGColorSpaceExtendedSRGB frame=(0.0, 0.0, 200.0, 50.0)
+dark bordered   UIView bg=- layer=- frame=(0.0, 0.0, 200.0, 50.0)
+dark bordered    UILabel bg=0.000000 0.000000 0.000000 0.000000 layer=- frame=(74.33333333333334, 14.66666666666667, 51.0, 20.333333333333332) text=1.000000 1.000000 1.000000 1.000000
+dark borderedTinted UIButton bg=- layer=- frame=(20.0, 200.0, 200.0, 50.0)
+dark borderedTinted  _UISystemBackgroundView bg=- layer=- frame=(0.0, 0.0, 200.0, 50.0)
+dark borderedTinted   UIView bg=0.000000 0.568627 1.000000 0.250000 layer=0.000000,0.568627,1.000000,0.250000 kCGColorSpaceSRGB frame=(0.0, 0.0, 200.0, 50.0)
+dark borderedTinted   UIView bg=- layer=- frame=(0.0, 0.0, 200.0, 50.0)
+dark borderedTinted    UILabel bg=0.000000 0.000000 0.000000 0.000000 layer=- frame=(74.33333333333334, 14.66666666666667, 51.0, 20.333333333333332) text=0.000000 0.568627 1.000000 1.000000
