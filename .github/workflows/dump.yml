@@ -44,8 +44,8 @@ jobs:
           mkdir -p out
           for MODE in light dark; do
             xcrun simctl ui "$UDID" appearance $MODE
-            for G in tabbar; do
-              SC="g50"
+            for G in capsule; do
+              SC="hstripes checker ramp edge hues g25 g75"
               for S in $SC; do
                 xcrun simctl terminate "$UDID" ui.feice.probe 2>/dev/null || true
                 xcrun simctl launch "$UDID" ui.feice.probe -scene $S -glass $G -dump 1
