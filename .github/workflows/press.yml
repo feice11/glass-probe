@@ -60,13 +60,9 @@ jobs:
             sleep 1
             case $G in
               tap) axe tap -x 284 -y 904 --udid "$UDID" ;;
-              hold)
-                axe touch -x 175 -y 904 --down --udid "$UDID"
-                sleep 0.6; xcrun simctl io "$UDID" screenshot --type=png "out/${N}_a.png"
-                sleep 0.6; xcrun simctl io "$UDID" screenshot --type=png "out/${N}_b.png"
-                sleep 0.3
-                axe touch -x 175 -y 904 --up --udid "$UDID" ;;
-              drag) axe swipe --start-x 66 --start-y 904 --end-x 374 --end-y 904 --duration 1.2 --udid "$UDID" ;;
+              hold) axe touch -x 175 -y 904 --down --up --delay 1.5 --udid "$UDID" ;;
+              drag) axe swipe --start-x 66 --start-y 904 --end-x 374 --end-y 904 --duration 2.0 --udid "$UDID" ;;
+              drag2) axe drag --help; axe swipe --start-x 66 --start-y 904 --end-x 374 --end-y 904 --duration 0.5 --udid "$UDID" ;;
             esac
             sleep 3
             kill -INT $VP; wait $VP
@@ -76,11 +72,11 @@ jobs:
             cp "$D/Documents/anim.txt" "out/$N.txt"
             rm -f "$D/Documents/anim.txt"
           }
-          run light g50 tap
           run light g50 hold
           run light g50 drag
-          run light hues hold
-          run dark hues hold
+          run light g50 drag2
+          run light g50 tap
+          run dark g50 hold
           cp ~/Library/Logs/DiagnosticReports/Probe* out/ 2>/dev/null; ls -la out
       - name: push
         run: |

@@ -174,6 +174,11 @@ func show(_ v: Any) -> String {
     if let nv = v as? NSValue, !(v is NSNumber) {
         var size = 0
         NSGetSizeAndAlignment(nv.objCType, &size, nil)
+        if size == 128 {
+            var d = [Double](repeating: 0, count: 16)
+            nv.getValue(&d, size: 128)
+            return "m4[" + d.map { String(format: "%.6f", $0) }.joined(separator: ",") + "]"
+        }
         if size == 80 {
             var f = [Float](repeating: 0, count: 20)
             nv.getValue(&f, size: 80)
