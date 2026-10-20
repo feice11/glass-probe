@@ -76,7 +76,7 @@ struct Root: View {
     let glass = arg("glass", "capsule")
     var body: some View {
         content.onAppear {
-            if arg("dump", "0") == "1" { DispatchQueue.main.asyncAfter(deadline: .now() + 2) { dumpAll() } }
+            if arg("dump", "0") == "1" { DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) { dumpAll() } }
             if arg("colors", "0") == "1" { dumpColors(); DispatchQueue.main.asyncAfter(deadline: .now() + 1) { dumpButtons() } }
             if let sec = Double(arg("watch", "0")), sec > 0 {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) { Watcher.shared.begin(seconds: sec) }
@@ -195,6 +195,16 @@ func dumpLayer(_ l: CALayer, _ depth: Int, _ out: inout String) {
     let cls = "\(type(of: l))"
     let interesting = ["SDF", "Backdrop", "Glass", "Portal", "Pocket", "Edge", "Blur", "Variable", "Gradient"].contains { cls.contains($0) }
     if interesting { for p in props(l, stopAt: CALayer.self) { out += "\(pad)  . \(p)\n" } }
+    if l.isHidden { out += "\(pad)  . HIDDEN\n" }
+    if l.shadowOpacity > 0 || "\(type(of: l))".contains("Shadow") {
+        out += "\(pad)  . shadow opacity=\(l.shadowOpacity) radius=\(l.shadowRadius) offset=\(l.shadowOffset) color=" + (l.shadowColor.map { show($0) } ?? "nil")
+        out += " path=" + (l.shadowPath.map { "\($0.boundingBox)" } ?? "nil") + " bounds=\(l.bounds) masksToBounds=\(l.masksToBounds) compositing=" + (l.compositingFilter.map { "\($0)" } ?? "nil") + "\n"
+        for p in props(l, stopAt: CALayer.self) { out += "\(pad)  . \(p)\n" }
+    }
+    if let p = l.presentation(), let fs = p.filters, !fs.isEmpty, l.animationKeys()?.isEmpty == false {
+        for f in fs { out += "\(pad)  presentation filter: \(describeFilter(f))\n" }
+    }
+    if let keys = l.animationKeys(), !keys.isEmpty { out += "\(pad)  . anims=\(keys)\n" }
     if let g = l as? CAGradientLayer {
         out += "\(pad)  . gradient type=\(g.type.rawValue) start=\(g.startPoint) end=\(g.endPoint) locations=\(g.locations ?? []) colors=" + (g.colors ?? []).map { show($0) }.joined(separator: " ") + "\n"
     }

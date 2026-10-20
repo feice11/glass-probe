@@ -44,12 +44,12 @@ jobs:
           mkdir -p out
           for MODE in light dark; do
             xcrun simctl ui "$UDID" appearance $MODE
-            for G in edge edgehard edgetab; do
-              SC="hstripes checker black white g50 hues"
+            for G in edge edgetab; do
+              SC="hstripes vstripes black white g50"
               for S in $SC; do
                 xcrun simctl terminate "$UDID" ui.feice.probe 2>/dev/null || true
                 xcrun simctl launch "$UDID" ui.feice.probe -scene $S -glass $G -dump 1
-                sleep 6
+                sleep 7
                 D=$(xcrun simctl get_app_container "$UDID" ui.feice.probe data)
                 cp "$D/Documents/dump.txt" "out/${MODE}_${G}_${S}.txt"
                 mkdir -p "out/${MODE}_${G}_${S}_img"; cp "$D"/Documents/img*.png "out/${MODE}_${G}_${S}_img/" 2>/dev/null
