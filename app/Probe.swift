@@ -1,4 +1,6 @@
 import SwiftUI
+import UIKit
+import ObjectiveC
 
 // 启动参数 -scene <名字> -glass <capsule|circle|tabbar|none>
 // 背景都用纯色块画，像素可控，方便和安卓的结果逐像素比
@@ -71,6 +73,11 @@ struct Root: View {
     let scene = arg("scene", "gray")
     let glass = arg("glass", "capsule")
     var body: some View {
+        content.onAppear {
+            if arg("dump", "0") == "1" { DispatchQueue.main.asyncAfter(deadline: .now() + 2) { dumpAll() } }
+        }
+    }
+    @ViewBuilder var content: some View {
         switch glass {
         case "tabbar":
             TabView {
@@ -95,4 +102,52 @@ struct Root: View {
             .statusBarHidden()
         }
     }
+}
+
+// 调试：把自己窗口里的图层树和图层上挂的滤镜参数写到 Documents/dump.txt（和 Xcode 视图调试器看到的是同一份东西）
+let inputKeys: [String] = ["inputAberrationAmount", "inputAberrationAngle", "inputAberrationHeight", "inputAberrationOffset", "inputAdaptive", "inputAddWhite", "inputAllowsGroup", "inputAlphaValues", "inputAmount", "inputAngle", "inputAspectRatio", "inputBackColor0", "inputBackColor1", "inputBackEnabled", "inputBackdropAware", "inputBias", "inputBleedAmount", "inputBleedBlurRadius", "inputBleedColorMatrixBlack", "inputBleedColorMatrixFillColor", "inputBleedColorMatrixSaturation", "inputBleedColorMatrixWhite", "inputBleedDarkenBlend", "inputBleedDistance0", "inputBleedDistance1", "inputBleedHeight", "inputBleedOffset", "inputBleedOpacity", "inputBleedSaturation", "inputBlueOffset", "inputBlueValues", "inputBlurDistance0", "inputBlurDistance1", "inputBlurDistance2", "inputBlurDistance3", "inputBlurDistance4", "inputBlurFillBlurRadius", "inputBlurFillDarkenOpacity", "inputBlurFillLightenOpacity", "inputBlurFillNormalOpacity", "inputBlurOpacity0", "inputBlurOpacity1", "inputBlurOpacity2", "inputBlurOpacity3", "inputBlurOpacity4", "inputBlurRadius", "inputBounds", "inputClamp", "inputClampPreserveHue", "inputColor", "inputColor0", "inputColor1", "inputColorMap", "inputColorMatrix", "inputDither", "inputEdgeEnd", "inputEdgeOpacityEnd", "inputEdgeOpacityStart", "inputEdgeStart", "inputEnd", "inputEndAngle", "inputExtendEdges", "inputFaceColorMatrixBlack", "inputFaceColorMatrixFillColor", "inputFaceColorMatrixMaxLuma", "inputFaceColorMatrixMaxLumaSDR", "inputFaceColorMatrixSaturation", "inputFaceColorMatrixWhite", "inputFaceOpacity", "inputFade", "inputFrontColor", "inputFrontEnabled", "inputGreenOffset", "inputGreenValues", "inputHSVSpace", "inputHardEdges", "inputInnerRefractionAmount", "inputInnerRefractionHeight", "inputIntermediateBitDepth", "inputKeyFillHighlightAmount", "inputKeyFillHighlightAngle", "inputKeyFillHighlightColorBias", "inputKeyFillHighlightEffectOffset", "inputKeyFillHighlightHeight", "inputKeyFillHighlightSpread", "inputKeyFillHighlightSpreadSDR", "inputLinear", "inputMaskImage", "inputMaxHeadroom", "inputNormalizeEdges", "inputOffset", "inputOuterRefractionAmount", "inputOuterRefractionHeight", "inputOverlayOpacity", "inputPremultipliedValues", "inputQuality", "inputRadius", "inputRedOffset", "inputRedValues", "inputRefractionAmount", "inputRefractionDistance0", "inputRefractionDistance1", "inputRefractionHeight", "inputRefractionOffset", "inputRefractionOpacity", "inputReversed", "inputRingShadowBlurRadius", "inputRingShadowMask", "inputRingShadowOffset", "inputRingShadowOpacity", "inputRingShadowStrokeWidth", "inputSDRGradientDistance0", "inputSDRGradientDistance1", "inputSDRHoldingToneEnabled", "inputSDRHoldingToneWhite", "inputSDRShadowOpacity", "inputScale", "inputShadowAmount", "inputShadowBlurRadius", "inputShadowBounds", "inputShadowColor", "inputShadowColorMatrixBlack", "inputShadowColorMatrixFillColor", "inputShadowColorMatrixSaturation", "inputShadowColorMatrixWhite", "inputShadowDistanceOffset", "inputShadowHeight", "inputShadowOffset", "inputShadowOpacity", "inputShadowRadius", "inputShadowVibrancyContribution", "inputSourceSublayerName", "inputStart", "inputStartAngle", "inputTime", "inputValues"]
+
+func props(_ obj: NSObject, stopAt: AnyClass) -> [String] {
+    var out: [String] = []
+    var c: AnyClass? = type(of: obj)
+    while let cls = c, cls != stopAt {
+        var n: UInt32 = 0
+        if let list = class_copyPropertyList(cls, &n) {
+            for i in 0..<Int(n) {
+                let name = String(cString: property_getName(list[i]))
+                if let v = obj.value(forKey: name) { out.append("\(name)=\(v)") }
+            }
+            free(list)
+        }
+        c = class_getSuperclass(cls)
+    }
+    return out
+}
+
+func describeFilter(_ f: Any) -> String {
+    guard let o = f as? NSObject else { return "\(f)" }
+    var parts = ["\(type(of: o)) name=\(o.value(forKey: "name") ?? "-")"]
+    for k in inputKeys { if let v = o.value(forKey: k) { parts.append("\(k)=\(v)") } }
+    return parts.joined(separator: " | ")
+}
+
+func dumpLayer(_ l: CALayer, _ depth: Int, _ out: inout String) {
+    let pad = String(repeating: "  ", count: depth)
+    out += "\(pad)\(type(of: l)) frame=\(l.frame) corner=\(l.cornerRadius) opacity=\(l.opacity)\n"
+    let cls = "\(type(of: l))"
+    if !(cls == "CALayer") { for p in props(l, stopAt: CALayer.self) { out += "\(pad)  . \(p)\n" } }
+    for f in l.filters ?? [] { out += "\(pad)  filter: \(describeFilter(f))\n" }
+    for f in l.backgroundFilters ?? [] { out += "\(pad)  bgfilter: \(describeFilter(f))\n" }
+    if let f = l.compositingFilter { out += "\(pad)  compositing: \(describeFilter(f))\n" }
+    for s in l.sublayers ?? [] { dumpLayer(s, depth + 1, &out) }
+}
+
+func dumpAll() {
+    var out = ""
+    for scene in UIApplication.shared.connectedScenes {
+        guard let ws = scene as? UIWindowScene else { continue }
+        for w in ws.windows { dumpLayer(w.layer, 0, &out) }
+    }
+    let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("dump.txt")
+    try? out.write(to: url, atomically: true, encoding: .utf8)
 }
