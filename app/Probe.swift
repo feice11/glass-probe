@@ -85,6 +85,33 @@ struct Root: View {
     }
     @ViewBuilder var content: some View {
         switch glass {
+        case "edge", "edgehard":
+            // iOS 26 的滚动边缘效果（scroll edge effect）：内容滚到中间，上面导航栏、下面工具栏都压着内容
+            NavigationStack {
+                ScrollView {
+                    Background(scene: scene).frame(height: 3000)
+                }
+                .defaultScrollAnchor(.center)
+                .scrollEdgeEffectStyle(glass == "edgehard" ? .hard : .soft, for: .all)
+                .navigationTitle("Title")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .topBarTrailing) { Button("Edit") {} }
+                    ToolbarItem(placement: .bottomBar) { Button("Action") {} }
+                }
+            }
+        case "edgetab":
+            TabView {
+                ForEach(["house", "magnifyingglass", "bell", "person"], id: \.self) { s in
+                    NavigationStack {
+                        ScrollView { Background(scene: scene).frame(height: 3000) }
+                            .defaultScrollAnchor(.center)
+                            .navigationTitle("Title")
+                            .navigationBarTitleDisplayMode(.inline)
+                    }
+                    .tabItem { Label(s, systemImage: s) }
+                }
+            }
         case "tabbar":
             TabView {
                 ForEach(["house", "magnifyingglass", "bell", "person"], id: \.self) { s in
@@ -142,10 +169,23 @@ func props(_ obj: NSObject, stopAt: AnyClass) -> [String] {
     return out
 }
 
+var imageCount = 0
+func saveImage(_ img: CGImage, _ tag: String) -> String {
+    imageCount += 1
+    let name = "img\(imageCount)_\(tag)_\(img.width)x\(img.height).png"
+    let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(name)
+    try? UIImage(cgImage: img).pngData()?.write(to: url)
+    return name
+}
+
 func describeFilter(_ f: Any) -> String {
     guard let o = f as? NSObject, "\(type(of: o))".contains("Filter") else { return "\(type(of: f)) \(f)" }
-    var parts = ["\(type(of: o)) name=\(o.value(forKey: "name") ?? "-")"]
-    for k in inputKeys { if let v = o.value(forKey: k) { parts.append("\(k)=\(show(v))") } }
+    var parts = ["\(type(of: o)) name=\(o.value(forKey: "name") ?? "-") type=\(o.value(forKey: "type") ?? "-")"]
+    for k in inputKeys {
+        guard let v = o.value(forKey: k) else { continue }
+        if CFGetTypeID(v as CFTypeRef) == CGImage.typeID { parts.append("\(k)=" + saveImage(v as! CGImage, k)); continue }
+        parts.append("\(k)=\(show(v))")
+    }
     return parts.joined(separator: " | ")
 }
 
@@ -153,8 +193,20 @@ func dumpLayer(_ l: CALayer, _ depth: Int, _ out: inout String) {
     let pad = String(repeating: "  ", count: depth)
     out += "\(pad)\(type(of: l)) frame=\(l.frame) corner=\(l.cornerRadius) opacity=\(l.opacity)\n"
     let cls = "\(type(of: l))"
-    let interesting = ["SDF", "Backdrop", "Glass", "Portal"].contains { cls.contains($0) }
+    let interesting = ["SDF", "Backdrop", "Glass", "Portal", "Pocket", "Edge", "Blur", "Variable", "Gradient"].contains { cls.contains($0) }
     if interesting { for p in props(l, stopAt: CALayer.self) { out += "\(pad)  . \(p)\n" } }
+    if let g = l as? CAGradientLayer {
+        out += "\(pad)  . gradient type=\(g.type.rawValue) start=\(g.startPoint) end=\(g.endPoint) locations=\(g.locations ?? []) colors=" + (g.colors ?? []).map { show($0) }.joined(separator: " ") + "\n"
+    }
+    if let bg = l.backgroundColor { out += "\(pad)  . bg=" + show(bg) + " compositing=" + (l.compositingFilter.map { "\($0)" } ?? "nil") + "\n" }
+    if !CATransform3DIsIdentity(l.transform) { out += "\(pad)  . transform=" + show(NSValue(caTransform3D: l.transform)) + "\n" }
+    if let c = l.contents, CFGetTypeID(c as CFTypeRef) == CGImage.typeID {
+        out += "\(pad)  . contents=" + saveImage(c as! CGImage, "contents") + " gravity=\(l.contentsGravity.rawValue) scale=\(l.contentsScale)\n"
+    }
+    if let m = l.mask {
+        out += "\(pad)  . mask=\(type(of: m)) frame=\(m.frame)\n"
+        dumpLayer(m, depth + 2, &out)
+    }
     for f in l.filters ?? [] { out += "\(pad)  filter: \(describeFilter(f))\n" }
     for f in l.backgroundFilters ?? [] { out += "\(pad)  bgfilter: \(describeFilter(f))\n" }
     if let f = l.compositingFilter { out += "\(pad)  compositing: \(describeFilter(f))\n" }
