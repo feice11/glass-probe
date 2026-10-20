@@ -241,6 +241,18 @@ final class Watcher: NSObject {
                 if !CATransform3DIsIdentity(p.sublayerTransform) { st += " subT=\(show(NSValue(caTransform3D: p.sublayerTransform)))" }
                 for f in p.filters ?? [] { st += " || filter: " + describeFilter(f) }
                 for f in p.backgroundFilters ?? [] { st += " || bg: " + describeFilter(f) }
+                if abs(p.bounds.width - 93) < 0.5 && abs(p.bounds.height - 93) < 0.5 {
+                    // 光斑：背景色、圆角、遮罩、合成方式、阴影都记下
+                    st += " || glow: bg=" + (p.backgroundColor.map { show($0) } ?? "nil") + " cornerCurve=" + p.cornerCurve.rawValue
+                    st += " masksToBounds=" + String(p.masksToBounds) + " compositing=" + (p.compositingFilter.map { describeFilter($0) } ?? "nil")
+                    st += " shadow=" + String(p.shadowOpacity) + "/" + String(describing: p.shadowRadius) + " mask=" + (p.mask.map { String(describing: type(of: $0)) + " " + String(describing: $0.bounds) + " contents=" + String(describing: $0.contents != nil) } ?? "nil")
+                    st += " props: " + props(p, stopAt: NSObject.self).joined(separator: ", ")
+                    if let m = p.mask, let c = m.contents, CFGetTypeID(c as CFTypeRef) == CGImage.typeID, !savedContents.contains(path + "mask") {
+                        savedContents.insert(path + "mask")
+                        let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("contents_glowmask.png")
+                        try? UIImage(cgImage: c as! CGImage).pngData()?.write(to: url)
+                    }
+                }
                 let cls = "\(type(of: l))"
                 if ["SDF", "Portal", "Backdrop"].contains(where: { cls.contains($0) }) {
                     st += " || props: " + props(p, stopAt: CALayer.self).joined(separator: ", ")
