@@ -117,7 +117,7 @@ func props(_ obj: NSObject, stopAt: AnyClass) -> [String] {
         if let list = class_copyPropertyList(cls, &n) {
             for i in 0..<Int(n) {
                 let name = String(cString: property_getName(list[i]))
-                let attrs = String(cString: property_getAttributes(list[i]) ?? "")
+                let attrs = property_getAttributes(list[i]).map { String(cString: $0) } ?? ""
                 var getter = name
                 if let g = attrs.split(separator: ",").first(where: { $0.hasPrefix("G") }) { getter = String(g.dropFirst()) }
                 if !obj.responds(to: Selector(getter)) { continue }
