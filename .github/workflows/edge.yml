@@ -65,4 +65,4 @@ jobs:
           git init -q -b edge
           git -c user.name=probe -c user.email=probe@local add -A
           git -c user.name=probe -c user.email=probe@local commit -qm edge
-          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" dump
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" edge
