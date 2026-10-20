@@ -1,0 +1,499 @@
+UIWindowLayer frame=(0.0, 0.0, 440.0, 956.0) corner=0.0 opacity=1.0
+  CALayer frame=(0.0, 0.0, 440.0, 956.0) corner=0.0 opacity=1.0
+    _UIMultiLayer frame=(0.0, 0.0, 440.0, 956.0) corner=0.0 opacity=1.0
+      CALayer frame=(0.0, 0.0, 440.0, 956.0) corner=0.0 opacity=1.0
+        CALayer frame=(0.0, 0.0, 440.0, 956.0) corner=0.0 opacity=1.0
+          . bg=color(0.000000,1.000000) compositing=nil
+          CALayer frame=(0.0, 0.0, 440.0, 956.0) corner=0.0 opacity=1.0
+            CALayer frame=(0.0, 0.0, 440.0, 956.0) corner=0.0 opacity=1.0
+              . bg=color(0.000000,1.000000) compositing=nil
+              CALayer frame=(0.0, 0.0, 440.0, 956.0) corner=0.0 opacity=1.0
+                CALayer frame=(0.0, 0.0, 440.0, 956.0) corner=0.0 opacity=1.0
+                  CALayer frame=(0.0, 0.0, 440.0, 956.0) corner=0.0 opacity=1.0
+                    . bg=color(0.000000,1.000000) compositing=nil
+                    CALayer frame=(0.0, 0.0, 440.0, 956.0) corner=0.0 opacity=1.0
+                      CALayer frame=(0.0, 0.0, 440.0, 956.0) corner=0.0 opacity=1.0
+                        CALayer frame=(0.0, 0.0, 440.0, 956.0) corner=0.0 opacity=1.0
+                          CALayer frame=(0.0, 0.0, 440.0, 956.0) corner=0.0 opacity=1.0
+                            CALayer frame=(0.0, 0.0, 440.0, 956.0) corner=0.0 opacity=1.0
+                              . bg=color(0.000000,1.000000) compositing=nil
+                              CALayer frame=(0.0, 0.0, 440.0, 956.0) corner=0.0 opacity=1.0
+                                CALayer frame=(0.0, 0.0, 440.0, 956.0) corner=0.0 opacity=1.0
+                                  CALayer frame=(0.0, 1005.6666666666665, 440.0, 956.0) corner=0.0 opacity=1.0
+                                    CABackdropLayer frame=(0.0, 1.1368683772161603e-13, 440.0, 170.79999999999984) corner=0.0 opacity=1.0
+                                      . mt_colorMatrixDrivenOpacity=1
+                                      . mt_colorMatrixDrivenInoperativeOpacity=1
+                                      . enabled=1
+                                      . groupName=backgroundGroup-0x0000000106ebd400
+                                      . usesGlobalGroupNamespace=0
+                                      . groupNamespace=owningContext
+                                      . scale=0.5
+                                      . backdropRect=NSRect: {{0, 0}, {0, 0}}
+                                      . marginWidth=0
+                                      . disablesOccludedBackdropBlurs=0
+                                      . captureOnly=1
+                                      . allowsInPlaceFiltering=0
+                                      . reducesCaptureBitDepth=0
+                                      . ignoresScreenClip=0
+                                      . preallocatesScreenArea=0
+                                      . inverseMeshed=0
+                                      . zoom=0
+                                      . disableFilterCache=0
+                                      . updateRate=0
+                                      . tracksLuma=0
+                                      . tracksLumaWhileHidden=0
+                                      . lumaUpdateRate=0.25
+                                      . allowsFilteredLuma=0
+                                      . lumaSubrect=NSRect: {{0, 0}, {0, 0}}
+                                      . delegate=<_TtCC5UIKit20ScrollEdgeEffectView12BackdropView: 0x106f3cfc0; identifier = 'Background source for 0x0000000106ebd180'; frame = (0 1.13687e-13; 440 170.8); userInteractionEnabled = NO; layer = <CABackdropLayer: 0x106f23fc0>>
+                                    CABackdropLayer frame=(0.0, 808.2, 440.0, 147.79999999999995) corner=0.0 opacity=1.0
+                                      . mt_colorMatrixDrivenOpacity=1
+                                      . mt_colorMatrixDrivenInoperativeOpacity=1
+                                      . enabled=1
+                                      . groupName=backgroundGroup-0x0000000106ebdb80
+                                      . usesGlobalGroupNamespace=0
+                                      . groupNamespace=owningContext
+                                      . scale=0.5
+                                      . backdropRect=NSRect: {{0, 0}, {0, 0}}
+                                      . marginWidth=0
+                                      . disablesOccludedBackdropBlurs=0
+                                      . captureOnly=1
+                                      . allowsInPlaceFiltering=0
+                                      . reducesCaptureBitDepth=0
+                                      . ignoresScreenClip=0
+                                      . preallocatesScreenArea=0
+                                      . inverseMeshed=0
+                                      . zoom=0
+                                      . disableFilterCache=0
+                                      . updateRate=0
+                                      . tracksLuma=0
+                                      . tracksLumaWhileHidden=0
+                                      . lumaUpdateRate=0.25
+                                      . allowsFilteredLuma=0
+                                      . lumaSubrect=NSRect: {{0, 0}, {0, 0}}
+                                      . delegate=<_TtCC5UIKit20ScrollEdgeEffectView12BackdropView: 0x106f3da40; identifier = 'Background source for 0x0000000106ebd900'; frame = (0 808.2; 440 147.8); userInteractionEnabled = NO; layer = <CABackdropLayer: 0x106fe0300>>
+                                  CALayer frame=(0.0, 0.0, 440.0, 3000.0) corner=0.0 opacity=1.0
+                                    RBDrawingLayer frame=(0.0, 896.0, 440.0, 1084.0) corner=0.0 opacity=1.0
+                                      RBImageQueueLayer frame=(0.0, 0.0, 0.0, 0.0) corner=0.0 opacity=1.0
+                                  CALayer frame=(0.0, 1005.6666666666665, 440.0, 956.0) corner=0.0 opacity=1.0
+                                    CALayer frame=(0.0, 1.1368683772161603e-13, 440.0, 170.79999999999984) corner=0.0 opacity=1.0
+                                      CALayer frame=(0.0, 0.0, 440.0, 94.33333333333333) corner=0.0 opacity=1.0
+                                      CALayer frame=(0.0, 0.0, 440.0, 170.79999999999984) corner=0.0 opacity=1.0
+                                        CALayer frame=(0.0, 0.0, 440.0, 170.79999999999984) corner=0.0 opacity=1.0
+                                          ShadowLayer frame=(-65.0, -65.0, 570.0, 171.0) corner=0.0 opacity=1.0
+                                            . shadow opacity=1.0 radius=18.0 offset=(0.0, 0.0) color=color(0.000000,0.000000,0.000000,1.000000) path=nil bounds=(0.0, 0.0, 570.0, 171.0) masksToBounds=false compositing=nil
+                                      CABackdropLayer frame=(0.0, 0.0, 440.0, 170.79999999999984) corner=0.0 opacity=1.0
+                                        . mt_colorMatrixDrivenOpacity=1
+                                        . mt_colorMatrixDrivenInoperativeOpacity=1
+                                        . enabled=1
+                                        . usesGlobalGroupNamespace=0
+                                        . groupNamespace=owningContext
+                                        . scale=0.5
+                                        . backdropRect=NSRect: {{0, 0}, {0, 0}}
+                                        . marginWidth=0
+                                        . disablesOccludedBackdropBlurs=0
+                                        . captureOnly=0
+                                        . allowsInPlaceFiltering=0
+                                        . reducesCaptureBitDepth=0
+                                        . ignoresScreenClip=0
+                                        . preallocatesScreenArea=0
+                                        . inverseMeshed=0
+                                        . zoom=0
+                                        . disableFilterCache=0
+                                        . updateRate=0
+                                        . tracksLuma=1
+                                        . tracksLumaWhileHidden=1
+                                        . lumaUpdateRate=0.25
+                                        . allowsFilteredLuma=1
+                                        . lumaSubrect=NSRect: {{0, 62}, {440, 44}}
+                                        . delegate=<_TtCC5UIKit20ScrollEdgeEffectView10PocketBlur: 0x106fa4600; frame = (0 0; 440 170.8); userInteractionEnabled = NO; layer = <CABackdropLayer: 0x106fe0040>> currentLuma = 0.5161290322580645
+                                        filter: CAFilter name=variableBlur type=variableBlur | inputDither=0 | inputFade=1 | inputNormalizeEdges=1 | inputRadius=1 | inputSourceSublayerName=PocketBlurMask
+                                        CAPortalLayer frame=(0.0, 0.0, 440.0, 170.79999999999984) corner=0.0 opacity=1.0
+                                          . sourceLayer=<CALayer: 0x106f45ce0>
+                                          . sourceLayerRenderId=0
+                                          . sourceContextId=0
+                                          . hidesSourceLayer=1
+                                          . sourceLayerOpacityScale=1
+                                          . matchesOpacity=0
+                                          . matchesPosition=1
+                                          . matchesTransform=1
+                                          . allowsBackdropGroups=1
+                                          . crossDisplay=0
+                                          . excludeSeparated=0
+                                          . allowedInContextTransform=0
+                                          . hidesSourceLayerInOtherPortals=0
+                                          filter: CAFilter name=colorMatrix type=colorMatrix | inputColorMatrix=floats[1.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.250000,-0.250000]
+                                      CALayer frame=(0.0, 0.0, 440.0, 170.79999999999984) corner=0.0 opacity=1.0
+                                        CABackdropLayer frame=(0.0, 0.0, 440.0, 170.79999999999984) corner=0.0 opacity=0.6
+                                          . mt_colorMatrixDrivenOpacity=1
+                                          . mt_colorMatrixDrivenInoperativeOpacity=1
+                                          . enabled=1
+                                          . groupName=backgroundGroup-0x0000000106ebd400
+                                          . usesGlobalGroupNamespace=0
+                                          . groupNamespace=owningContext
+                                          . scale=0.5
+                                          . backdropRect=NSRect: {{0, 0}, {0, 0}}
+                                          . marginWidth=0
+                                          . disablesOccludedBackdropBlurs=0
+                                          . captureOnly=0
+                                          . allowsInPlaceFiltering=0
+                                          . reducesCaptureBitDepth=0
+                                          . ignoresScreenClip=0
+                                          . preallocatesScreenArea=0
+                                          . inverseMeshed=0
+                                          . zoom=0
+                                          . disableFilterCache=0
+                                          . updateRate=0
+                                          . tracksLuma=1
+                                          . tracksLumaWhileHidden=0
+                                          . lumaUpdateRate=0.25
+                                          . allowsFilteredLuma=1
+                                          . lumaSubrect=NSRect: {{0, 0}, {0, 0}}
+                                          . delegate=<_TtCC5UIKit20ScrollEdgeEffectView12BackdropView: 0x106f3d340; identifier = 'backgroundReplay'; frame = (0 0; 440 170.8); alpha = 0.6; layer = <CABackdropLayer: 0x106fe0080>> currentLuma = 0.0
+                                        CALayer frame=(0.0, 0.0, 440.0, 170.79999999999984) corner=0.0 opacity=0.0
+                                          . bg=color(0.000000,1.000000) compositing=nil
+                                        CAPortalLayer frame=(0.0, 0.0, 440.0, 170.79999999999984) corner=0.0 opacity=1.0
+                                          . sourceLayer=<CALayer: 0x106f45ce0>
+                                          . sourceLayerRenderId=0
+                                          . sourceContextId=0
+                                          . hidesSourceLayer=1
+                                          . sourceLayerOpacityScale=1
+                                          . matchesOpacity=0
+                                          . matchesPosition=1
+                                          . matchesTransform=1
+                                          . allowsBackdropGroups=1
+                                          . crossDisplay=0
+                                          . excludeSeparated=0
+                                          . allowedInContextTransform=0
+                                          . hidesSourceLayerInOtherPortals=0
+                                          compositing: __NSCFConstantString destIn
+                                      CALayer frame=(0.0, 0.0, 0.0, 0.0) corner=0.0 opacity=0.0
+                                        . HIDDEN
+                                    CALayer frame=(0.0, 808.2, 440.0, 147.79999999999995) corner=0.0 opacity=1.0
+                                      CALayer frame=(0.0, 147.79999999999995, 440.0, 0.0) corner=0.0 opacity=1.0
+                                      CALayer frame=(0.0, 0.0, 440.0, 147.79999999999995) corner=0.0 opacity=1.0
+                                        CALayer frame=(0.0, 0.0, 440.0, 147.79999999999995) corner=0.0 opacity=1.0
+                                          ShadowLayer frame=(-65.0, 74.80000000000007, 570.0, 137.9999999999999) corner=0.0 opacity=1.0
+                                            . shadow opacity=1.0 radius=24.0 offset=(0.0, 0.0) color=color(0.000000,0.000000,0.000000,1.000000) path=nil bounds=(0.0, 0.0, 570.0, 137.9999999999999) masksToBounds=false compositing=nil
+                                      CABackdropLayer frame=(0.0, 0.0, 440.0, 147.79999999999995) corner=0.0 opacity=1.0
+                                        . mt_colorMatrixDrivenOpacity=1
+                                        . mt_colorMatrixDrivenInoperativeOpacity=1
+                                        . enabled=1
+                                        . usesGlobalGroupNamespace=0
+                                        . groupNamespace=owningContext
+                                        . scale=0.0625
+                                        . backdropRect=NSRect: {{0, 0}, {0, 0}}
+                                        . marginWidth=0
+                                        . disablesOccludedBackdropBlurs=0
+                                        . captureOnly=0
+                                        . allowsInPlaceFiltering=0
+                                        . reducesCaptureBitDepth=0
+                                        . ignoresScreenClip=0
+                                        . preallocatesScreenArea=0
+                                        . inverseMeshed=0
+                                        . zoom=0
+                                        . disableFilterCache=0
+                                        . updateRate=0
+                                        . tracksLuma=1
+                                        . tracksLumaWhileHidden=1
+                                        . lumaUpdateRate=0.25
+                                        . allowsFilteredLuma=1
+                                        . lumaSubrect=NSRect: {{21, 64.800000000000068}, {398, 62}}
+                                        . delegate=<_TtCC5UIKit20ScrollEdgeEffectView10PocketBlur: 0x106fa4c00; frame = (0 0; 440 147.8); hidden = YES; userInteractionEnabled = NO; layer = <CABackdropLayer: 0x106fe0340>> currentLuma = 0.41935483870967744
+                                        . HIDDEN
+                                        CAPortalLayer frame=(0.0, 0.0, 440.0, 147.79999999999995) corner=0.0 opacity=1.0
+                                          . sourceLayer=<CALayer: 0x106f46f10>
+                                          . sourceLayerRenderId=0
+                                          . sourceContextId=0
+                                          . hidesSourceLayer=1
+                                          . sourceLayerOpacityScale=1
+                                          . matchesOpacity=0
+                                          . matchesPosition=1
+                                          . matchesTransform=1
+                                          . allowsBackdropGroups=1
+                                          . crossDisplay=0
+                                          . excludeSeparated=0
+                                          . allowedInContextTransform=0
+                                          . hidesSourceLayerInOtherPortals=0
+                                          . HIDDEN
+                                          filter: CAFilter name=colorMatrix type=colorMatrix | inputColorMatrix=floats[1.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.250000,-0.250000]
+                                      CALayer frame=(0.0, 0.0, 440.0, 147.79999999999995) corner=0.0 opacity=1.0
+                                        CABackdropLayer frame=(0.0, 0.0, 440.0, 147.79999999999995) corner=0.0 opacity=0.6
+                                          . mt_colorMatrixDrivenOpacity=1
+                                          . mt_colorMatrixDrivenInoperativeOpacity=1
+                                          . enabled=1
+                                          . groupName=backgroundGroup-0x0000000106ebdb80
+                                          . usesGlobalGroupNamespace=0
+                                          . groupNamespace=owningContext
+                                          . scale=0.5
+                                          . backdropRect=NSRect: {{0, 0}, {0, 0}}
+                                          . marginWidth=0
+                                          . disablesOccludedBackdropBlurs=0
+                                          . captureOnly=0
+                                          . allowsInPlaceFiltering=0
+                                          . reducesCaptureBitDepth=0
+                                          . ignoresScreenClip=0
+                                          . preallocatesScreenArea=0
+                                          . inverseMeshed=0
+                                          . zoom=0
+                                          . disableFilterCache=0
+                                          . updateRate=0
+                                          . tracksLuma=1
+                                          . tracksLumaWhileHidden=0
+                                          . lumaUpdateRate=0.25
+                                          . allowsFilteredLuma=1
+                                          . lumaSubrect=NSRect: {{0, 0}, {0, 0}}
+                                          . delegate=<_TtCC5UIKit20ScrollEdgeEffectView12BackdropView: 0x106f3ddc0; identifier = 'backgroundReplay'; frame = (0 0; 440 147.8); alpha = 0.6; layer = <CABackdropLayer: 0x106fe0380>> currentLuma = 0.0
+                                        CALayer frame=(0.0, 0.0, 440.0, 147.79999999999995) corner=0.0 opacity=0.0
+                                          . bg=color(0.000000,1.000000) compositing=nil
+                                        CAPortalLayer frame=(0.0, 0.0, 440.0, 147.79999999999995) corner=0.0 opacity=1.0
+                                          . sourceLayer=<CALayer: 0x106f46f10>
+                                          . sourceLayerRenderId=0
+                                          . sourceContextId=0
+                                          . hidesSourceLayer=1
+                                          . sourceLayerOpacityScale=1
+                                          . matchesOpacity=0
+                                          . matchesPosition=1
+                                          . matchesTransform=1
+                                          . allowsBackdropGroups=1
+                                          . crossDisplay=0
+                                          . excludeSeparated=0
+                                          . allowedInContextTransform=0
+                                          . hidesSourceLayerInOtherPortals=0
+                                          compositing: __NSCFConstantString destIn
+                                      CALayer frame=(-120.0, 4.800000000000068, 680.0, 285.9999999999998) corner=0.0 opacity=0.01
+                                        . contents=img1_contents_240x240.png gravity=resize scale=1.0
+                                  CALayer frame=(434.0, 1388.0, 3.0, 224.33333333333334) corner=0.0 opacity=0.0
+                                    CALayer frame=(0.0, 0.0, 3.0, 224.33333333333334) corner=1.5 opacity=1.0
+                                      . bg=color(1.000000,0.500000) compositing=nil
+                        CALayer frame=(0.0, 62.0, 440.0, 54.0) corner=0.0 opacity=1.0
+                          CALayer frame=(0.0, -62.0, 440.0, 116.0) corner=0.0 opacity=1.0
+                          CALayer frame=(0.0, 0.0, 440.0, 54.0) corner=0.0 opacity=1.0
+                            CALayer frame=(0.0, 0.0, 440.0, 54.0) corner=0.0 opacity=1.0
+                              CALayer frame=(0.0, 0.0, 440.0, 54.0) corner=0.0 opacity=1.0
+                                CALayer frame=(202.33333333333334, 11.666666666666664, 35.333333333333314, 20.66666666666667) corner=0.0 opacity=1.0
+                                  filter: CAFilter name=gaussianBlur type=gaussianBlur | inputRadius=0
+                                  CALayer frame=(0.0, 0.0, 35.333333333333314, 20.66666666666667) corner=0.0 opacity=1.0
+                                    CALayer frame=(0.0, 0.0, 35.333333333333336, 20.666666666666668) corner=0.0 opacity=1.0
+                                      _UIMultiLayer frame=(0.0, 0.0, 35.0, 20.666666666666668) corner=0.0 opacity=1.0
+                                        filter: CAFilter name=vibrantColorMatrix type=vibrantColorMatrix | inputBackdropAware=1 | inputClamp=0 | inputClampPreserveHue=0 | inputColorMatrix=floats[0.000000,0.000000,0.000000,0.000000,1.000000,0.000000,0.000000,0.000000,0.000000,1.000000,0.000000,0.000000,0.000000,0.000000,1.000000,0.000000,0.000000,0.000000,0.000000,1.000000]
+                                        _UILabelLayer frame=(0.0, 0.0, 35.0, 20.666666666666668) corner=0.0 opacity=1.0
+                              CALayer frame=(0.0, 0.0, 440.0, 54.0) corner=0.0 opacity=1.0
+                              _UIMultiLayer frame=(0.0, 0.0, 440.0, 54.0) corner=0.0 opacity=1.0
+                                CALayer frame=(0.0, 0.0, 440.0, 54.0) corner=0.0 opacity=1.0
+                                CALayer frame=(0.0, 0.0, 440.0, 54.0) corner=0.0 opacity=1.0
+                          CALayer frame=(0.0, 0.0, 0.0, 0.0) corner=0.0 opacity=1.0
+                        CALayer frame=(0.0, 0.0, 440.0, 956.0) corner=0.0 opacity=1.0
+                          CALayer frame=(0.0, 0.0, 440.0, 956.0) corner=0.0 opacity=1.0
+                          CALayer frame=(0.0, 0.0, 0.0, 0.0) corner=0.0 opacity=1.0
+              _UIMultiLayer frame=(0.0, 873.0, 440.0, 83.0) corner=0.0 opacity=1.0
+                CALayer frame=(0.0, 0.0, 440.0, 83.0) corner=0.0 opacity=1.0
+                  CALayer frame=(0.0, -873.0, 440.0, 956.0) corner=0.0 opacity=1.0
+                    CALayer frame=(0.0, 873.0, 440.0, 83.0) corner=0.0 opacity=1.0
+                      CALayer frame=(21.0, 0.0, 398.0, 62.0) corner=nan opacity=1.0
+                        CALayer frame=(0.0, 0.0, 398.0, 62.0) corner=0.0 opacity=1.0
+                          CALayer frame=(4.0, 4.0, 82.0, 54.0) corner=0.0 opacity=1.0
+                            _UIMultiLayer frame=(24.000000000000004, 6.0, 33.333333333333336, 28.0) corner=0.0 opacity=1.0
+                              filter: CAFilter name=vibrantColorMatrix type=vibrantColorMatrix | inputBackdropAware=1 | inputClamp=0 | inputClampPreserveHue=0 | inputColorMatrix=floats[0.500000,0.000000,0.000000,0.000000,0.000000,0.000000,0.500000,0.000000,0.000000,0.568627,0.000000,0.000000,0.500000,0.000000,1.000000,0.000000,0.000000,0.000000,1.000000,0.000000]
+                              CALayer frame=(0.0, 0.0, 33.333333333333336, 28.0) corner=0.0 opacity=1.0
+                                . contents=img2_contents_82x72.png gravity=resize scale=3.0
+                            _UIMultiLayer frame=(26.0, 35.0, 30.666666666666668, 12.0) corner=0.0 opacity=1.0
+                              filter: CAFilter name=vibrantColorMatrix type=vibrantColorMatrix | inputBackdropAware=1 | inputClamp=0 | inputClampPreserveHue=0 | inputColorMatrix=floats[0.500000,0.000000,0.000000,0.000000,0.000000,0.000000,0.500000,0.000000,0.000000,0.568627,0.000000,0.000000,0.500000,0.000000,1.000000,0.000000,0.000000,0.000000,1.000000,0.000000]
+                              _UILabelLayer frame=(0.0, 0.0, 30.666666666666668, 12.0) corner=0.0 opacity=1.0
+                          CALayer frame=(93.66666666666666, 4.0, 121.0, 54.0) corner=0.0 opacity=1.0
+                            _UIMultiLayer frame=(47.0, 6.666666666666666, 27.666666666666668, 26.666666666666668) corner=0.0 opacity=1.0
+                              filter: CAFilter name=vibrantColorMatrix type=vibrantColorMatrix | inputBackdropAware=1 | inputClamp=0 | inputClampPreserveHue=0 | inputColorMatrix=floats[0.500000,0.000000,0.000000,0.000000,0.000000,0.000000,0.500000,0.000000,0.000000,0.568627,0.000000,0.000000,0.500000,0.000000,1.000000,0.000000,0.000000,0.000000,1.000000,0.000000]
+                              CALayer frame=(0.0, 0.0, 27.666666666666668, 26.666666666666668) corner=0.0 opacity=1.0
+                                . contents=img3_contents_67x68.png gravity=resize scale=3.0
+                            _UIMultiLayer frame=(19.0, 35.0, 82.66666666666667, 12.0) corner=0.0 opacity=1.0
+                              filter: CAFilter name=vibrantColorMatrix type=vibrantColorMatrix | inputBackdropAware=1 | inputClamp=0 | inputClampPreserveHue=0 | inputColorMatrix=floats[0.500000,0.000000,0.000000,0.000000,0.000000,0.000000,0.500000,0.000000,0.000000,0.568627,0.000000,0.000000,0.500000,0.000000,1.000000,0.000000,0.000000,0.000000,1.000000,0.000000]
+                              _UILabelLayer frame=(0.0, 0.0, 82.66666666666667, 12.0) corner=0.0 opacity=1.0
+                          CALayer frame=(222.33333333333331, 4.0, 82.0, 54.0) corner=0.0 opacity=1.0
+                            _UIMultiLayer frame=(28.0, 6.0, 26.333333333333332, 28.0) corner=0.0 opacity=1.0
+                              filter: CAFilter name=vibrantColorMatrix type=vibrantColorMatrix | inputBackdropAware=1 | inputClamp=0 | inputClampPreserveHue=0 | inputColorMatrix=floats[0.500000,0.000000,0.000000,0.000000,0.000000,0.000000,0.500000,0.000000,0.000000,0.568627,0.000000,0.000000,0.500000,0.000000,1.000000,0.000000,0.000000,0.000000,1.000000,0.000000]
+                              CALayer frame=(0.0, 0.0, 26.333333333333332, 28.0) corner=0.0 opacity=1.0
+                                . contents=img4_contents_65x72.png gravity=resize scale=3.0
+                            _UIMultiLayer frame=(32.0, 35.0, 18.666666666666668, 12.0) corner=0.0 opacity=1.0
+                              filter: CAFilter name=vibrantColorMatrix type=vibrantColorMatrix | inputBackdropAware=1 | inputClamp=0 | inputClampPreserveHue=0 | inputColorMatrix=floats[0.500000,0.000000,0.000000,0.000000,0.000000,0.000000,0.500000,0.000000,0.000000,0.568627,0.000000,0.000000,0.500000,0.000000,1.000000,0.000000,0.000000,0.000000,1.000000,0.000000]
+                              _UILabelLayer frame=(0.0, 0.0, 18.666666666666668, 12.0) corner=0.0 opacity=1.0
+                          CALayer frame=(312.0, 4.0, 82.0, 54.0) corner=0.0 opacity=1.0
+                            _UIMultiLayer frame=(28.0, 7.666666666666666, 25.333333333333332, 24.666666666666668) corner=0.0 opacity=1.0
+                              filter: CAFilter name=vibrantColorMatrix type=vibrantColorMatrix | inputBackdropAware=1 | inputClamp=0 | inputClampPreserveHue=0 | inputColorMatrix=floats[0.500000,0.000000,0.000000,0.000000,0.000000,0.000000,0.500000,0.000000,0.000000,0.568627,0.000000,0.000000,0.500000,0.000000,1.000000,0.000000,0.000000,0.000000,1.000000,0.000000]
+                              CALayer frame=(0.0, 0.0, 25.333333333333332, 24.666666666666668) corner=0.0 opacity=1.0
+                                . contents=img5_contents_58x62.png gravity=resize scale=3.0
+                            _UIMultiLayer frame=(24.0, 35.0, 35.0, 12.0) corner=0.0 opacity=1.0
+                              filter: CAFilter name=vibrantColorMatrix type=vibrantColorMatrix | inputBackdropAware=1 | inputClamp=0 | inputClampPreserveHue=0 | inputColorMatrix=floats[0.500000,0.000000,0.000000,0.000000,0.000000,0.000000,0.500000,0.000000,0.000000,0.568627,0.000000,0.000000,0.500000,0.000000,1.000000,0.000000,0.000000,0.000000,1.000000,0.000000]
+                              _UILabelLayer frame=(0.0, 0.0, 35.0, 12.0) corner=0.0 opacity=1.0
+                        CALayer frame=(4.0, 4.0, 82.0, 54.0) corner=nan opacity=1.0
+                          filter: CAFilter name=opacityPair type=opacityPair
+                          CALayer frame=(0.0, 0.0, 82.0, 54.0) corner=0.0 opacity=1.0
+                            CALayer frame=(0.0, 0.0, 82.0, 54.0) corner=nan opacity=1.0
+                              CABackdropLayer frame=(0.0, 0.0, 82.0, 54.0) corner=27.0 opacity=1.0
+                                . mt_colorMatrixDrivenOpacity=1
+                                . mt_colorMatrixDrivenInoperativeOpacity=1
+                                . enabled=1
+                                . groupName=<UITabSelectionView: 0x1041c9880>
+                                . usesGlobalGroupNamespace=0
+                                . groupNamespace=owningContext
+                                . scale=0.25
+                                . backdropRect=NSRect: {{0, 0}, {0, 0}}
+                                . marginWidth=0
+                                . disablesOccludedBackdropBlurs=0
+                                . captureOnly=0
+                                . allowsInPlaceFiltering=0
+                                . reducesCaptureBitDepth=0
+                                . ignoresScreenClip=0
+                                . preallocatesScreenArea=0
+                                . inverseMeshed=0
+                                . zoom=0
+                                . disableFilterCache=0
+                                . updateRate=0
+                                . tracksLuma=0
+                                . tracksLumaWhileHidden=0
+                                . lumaUpdateRate=0.25
+                                . allowsFilteredLuma=0
+                                . lumaSubrect=NSRect: {{0, 0}, {0, 0}}
+                                filter: CAFilter name=gaussianBlur type=gaussianBlur | inputRadius=2
+                                filter: CAFilter name=colorMatrix type=colorMatrix | inputColorMatrix=floats[1.082000,-0.113000,-0.011000,0.000000,0.135000,-0.034000,1.003000,-0.011000,0.000000,0.135000,-0.034000,-0.113000,1.105000,0.000000,0.135000,0.000000,0.000000,0.000000,1.000000,0.000000]
+                            CALayer frame=(0.0, 0.0, 82.0, 54.0) corner=nan opacity=1.0
+                              CALayer frame=(0.0, 0.0, 82.0, 54.0) corner=0.0 opacity=1.0
+                                filter: CAFilter name=displacementMap type=displacementMap | inputAmount=0 | inputSourceSublayerName=warpSDF
+                                CASDFLayer frame=(0.0, 0.0, 82.0, 54.0) corner=0.0 opacity=1.0
+                                  . effect=CASDFGlassDisplacementEffect {height=11.2, curvature=1, angle=0, maskOffset=0}
+                                  . smoothness=0
+                                  . gaussianRadius=0
+                                  . effectOffset=0
+                                  . mergeElements=0
+                                  CASDFElementLayer frame=(0.0, 0.0, 82.0, 54.0) corner=nan opacity=1.0
+                                    . mode=bounds
+                                    . contentsZeroValueDistance=0
+                                    . contentsOneValueDistance=1
+                                    . operation=union
+                                    . gradientOvalization=0.5
+                                    . hitTestsAsFill=0
+                                CAPortalLayer frame=(0.0, 0.0, 82.0, 54.0) corner=nan opacity=1.0
+                                  . sourceLayer=<CALayer: 0x1043ca9d0>
+                                  . sourceLayerRenderId=0
+                                  . sourceContextId=0
+                                  . hidesSourceLayer=1
+                                  . sourceLayerOpacityScale=1
+                                  . matchesOpacity=1
+                                  . matchesPosition=1
+                                  . matchesTransform=1
+                                  . allowsBackdropGroups=0
+                                  . crossDisplay=0
+                                  . excludeSeparated=0
+                                  . allowedInContextTransform=0
+                                  . hidesSourceLayerInOtherPortals=0
+                              CALayer frame=(0.0, 0.0, 82.0, 54.0) corner=nan opacity=1.0
+                        CALayer frame=(0.0, 0.0, 398.0, 62.0) corner=0.0 opacity=1.0
+                          CALayer frame=(4.0, 4.0, 82.0, 54.0) corner=0.0 opacity=1.0
+                            _UIMultiLayer frame=(24.000000000000004, 6.0, 33.333333333333336, 28.0) corner=0.0 opacity=1.0
+                              filter: CAFilter name=vibrantColorMatrix type=vibrantColorMatrix | inputBackdropAware=1 | inputClamp=0 | inputClampPreserveHue=0 | inputColorMatrix=floats[0.798030,-0.679514,-0.068516,0.000000,0.950000,-0.201955,0.320556,-0.068601,0.000000,0.950000,-0.202022,-0.679388,0.931410,0.000000,0.950000,0.000000,0.000000,0.000000,1.000000,0.000000]
+                              CALayer frame=(0.0, 0.0, 33.333333333333336, 28.0) corner=0.0 opacity=1.0
+                                . contents=img6_contents_82x72.png gravity=resize scale=3.0
+                            _UIMultiLayer frame=(26.0, 35.0, 30.0, 12.0) corner=0.0 opacity=1.0
+                              filter: CAFilter name=vibrantColorMatrix type=vibrantColorMatrix | inputBackdropAware=1 | inputClamp=0 | inputClampPreserveHue=0 | inputColorMatrix=floats[0.798030,-0.679514,-0.068516,0.000000,0.950000,-0.201955,0.320556,-0.068601,0.000000,0.950000,-0.202022,-0.679388,0.931410,0.000000,0.950000,0.000000,0.000000,0.000000,1.000000,0.000000]
+                              _UILabelLayer frame=(0.0, 0.0, 30.0, 12.0) corner=0.0 opacity=1.0
+                          CALayer frame=(93.66666666666666, 4.0, 121.0, 54.0) corner=0.0 opacity=1.0
+                            _UIMultiLayer frame=(47.0, 6.666666666666666, 27.666666666666668, 26.666666666666668) corner=0.0 opacity=1.0
+                              filter: CAFilter name=vibrantColorMatrix type=vibrantColorMatrix | inputBackdropAware=1 | inputClamp=0 | inputClampPreserveHue=0 | inputColorMatrix=floats[0.798030,-0.679514,-0.068516,0.000000,0.950000,-0.201955,0.320556,-0.068601,0.000000,0.950000,-0.202022,-0.679388,0.931410,0.000000,0.950000,0.000000,0.000000,0.000000,1.000000,0.000000]
+                              CALayer frame=(0.0, 0.0, 27.666666666666668, 26.666666666666668) corner=0.0 opacity=1.0
+                                . contents=img7_contents_67x68.png gravity=resize scale=3.0
+                            _UIMultiLayer frame=(20.0, 35.0, 81.0, 12.0) corner=0.0 opacity=1.0
+                              filter: CAFilter name=vibrantColorMatrix type=vibrantColorMatrix | inputBackdropAware=1 | inputClamp=0 | inputClampPreserveHue=0 | inputColorMatrix=floats[0.798030,-0.679514,-0.068516,0.000000,0.950000,-0.201955,0.320556,-0.068601,0.000000,0.950000,-0.202022,-0.679388,0.931410,0.000000,0.950000,0.000000,0.000000,0.000000,1.000000,0.000000]
+                              _UILabelLayer frame=(0.0, 0.0, 81.0, 12.0) corner=0.0 opacity=1.0
+                          CALayer frame=(222.33333333333331, 4.0, 82.0, 54.0) corner=0.0 opacity=1.0
+                            _UIMultiLayer frame=(28.0, 6.0, 26.333333333333332, 28.0) corner=0.0 opacity=1.0
+                              filter: CAFilter name=vibrantColorMatrix type=vibrantColorMatrix | inputBackdropAware=1 | inputClamp=0 | inputClampPreserveHue=0 | inputColorMatrix=floats[0.798030,-0.679514,-0.068516,0.000000,0.950000,-0.201955,0.320556,-0.068601,0.000000,0.950000,-0.202022,-0.679388,0.931410,0.000000,0.950000,0.000000,0.000000,0.000000,1.000000,0.000000]
+                              CALayer frame=(0.0, 0.0, 26.333333333333332, 28.0) corner=0.0 opacity=1.0
+                                . contents=img8_contents_65x72.png gravity=resize scale=3.0
+                            _UIMultiLayer frame=(32.0, 35.0, 18.0, 12.0) corner=0.0 opacity=1.0
+                              filter: CAFilter name=vibrantColorMatrix type=vibrantColorMatrix | inputBackdropAware=1 | inputClamp=0 | inputClampPreserveHue=0 | inputColorMatrix=floats[0.798030,-0.679514,-0.068516,0.000000,0.950000,-0.201955,0.320556,-0.068601,0.000000,0.950000,-0.202022,-0.679388,0.931410,0.000000,0.950000,0.000000,0.000000,0.000000,1.000000,0.000000]
+                              _UILabelLayer frame=(0.0, 0.0, 18.0, 12.0) corner=0.0 opacity=1.0
+                          CALayer frame=(312.0, 4.0, 82.0, 54.0) corner=0.0 opacity=1.0
+                            _UIMultiLayer frame=(28.0, 7.666666666666666, 25.333333333333332, 24.666666666666668) corner=0.0 opacity=1.0
+                              filter: CAFilter name=vibrantColorMatrix type=vibrantColorMatrix | inputBackdropAware=1 | inputClamp=0 | inputClampPreserveHue=0 | inputColorMatrix=floats[0.798030,-0.679514,-0.068516,0.000000,0.950000,-0.201955,0.320556,-0.068601,0.000000,0.950000,-0.202022,-0.679388,0.931410,0.000000,0.950000,0.000000,0.000000,0.000000,1.000000,0.000000]
+                              CALayer frame=(0.0, 0.0, 25.333333333333332, 24.666666666666668) corner=0.0 opacity=1.0
+                                . contents=img9_contents_58x62.png gravity=resize scale=3.0
+                            _UIMultiLayer frame=(24.000000000000004, 35.0, 34.333333333333336, 12.0) corner=0.0 opacity=1.0
+                              filter: CAFilter name=vibrantColorMatrix type=vibrantColorMatrix | inputBackdropAware=1 | inputClamp=0 | inputClampPreserveHue=0 | inputColorMatrix=floats[0.798030,-0.679514,-0.068516,0.000000,0.950000,-0.201955,0.320556,-0.068601,0.000000,0.950000,-0.202022,-0.679388,0.931410,0.000000,0.950000,0.000000,0.000000,0.000000,1.000000,0.000000]
+                              _UILabelLayer frame=(0.0, 0.0, 34.333333333333336, 12.0) corner=0.0 opacity=1.0
+                        CALayer frame=(0.0, 0.0, 82.0, 54.0) corner=nan opacity=1.0
+                          . anims=["_UILiquidLensView.punchout.matchPosition"]
+                          . bg=color(0.000000,1.000000) compositing=destOut
+                          compositing: CAFilter name=destOut type=destOut
+                CALayer frame=(0.0, 0.0, 440.0, 83.0) corner=0.0 opacity=1.0
+                  CALayer frame=(0.0, 0.0, 440.0, 83.0) corner=0.0 opacity=1.0
+                    CALayer frame=(0.0, 0.0, 440.0, 83.0) corner=0.0 opacity=1.0
+                      . bg=color(0.000000,0.000000) compositing=normalBlendMode
+                      compositing: __NSCFConstantString normalBlendMode
+                      CABackdropLayer frame=(0.0, 0.0, 440.0, 83.0) corner=0.0 opacity=1.0
+                        . mt_colorMatrixDrivenOpacity=1
+                        . mt_colorMatrixDrivenInoperativeOpacity=1
+                        . enabled=1
+                        . groupName=_GlassGroup-0x0000000106c70200
+                        . usesGlobalGroupNamespace=0
+                        . groupNamespace=owningContext
+                        . scale=0.25
+                        . backdropRect=NSRect: {{0, 0}, {0, 0}}
+                        . marginWidth=12.4
+                        . disablesOccludedBackdropBlurs=0
+                        . captureOnly=0
+                        . allowsInPlaceFiltering=0
+                        . reducesCaptureBitDepth=0
+                        . ignoresScreenClip=0
+                        . preallocatesScreenArea=0
+                        . inverseMeshed=0
+                        . zoom=0
+                        . disableFilterCache=0
+                        . updateRate=0
+                        . tracksLuma=0
+                        . tracksLumaWhileHidden=0
+                        . lumaUpdateRate=0.25
+                        . allowsFilteredLuma=0
+                        . lumaSubrect=NSRect: {{0, 0}, {0, 0}}
+                        . delegate=<_TtC5UIKitP33_ACD4A08F4BE9D00246F2A9C24A80CA8817UISDFBackdropView: 0x1041c0540; frame = (0 0; 440 83); autoresize = W+H; backgroundColor = UIExtendedGrayColorSpace 0 0; layer = <CABackdropLayer: 0x1040513c0>>
+                        . bg=color(0.000000,0.000000) compositing=normalBlendMode
+                        filter: CAFilter name=glassBackground type=glassBackground | inputBleedAmount=21.7 | inputBleedBlurRadius=0 | inputBleedColorMatrixBlack=0 | inputBleedColorMatrixSaturation=1 | inputBleedColorMatrixWhite=0.5 | inputBleedDarkenBlend=0 | inputBleedDistance0=1 | inputBleedDistance1=0 | inputBleedHeight=21.7 | inputBleedOpacity=0 | inputBlurDistance0=-31 | inputBlurDistance1=-1 | inputBlurDistance2=0 | inputBlurDistance3=0 | inputBlurDistance4=12.4 | inputBlurOpacity0=0 | inputBlurOpacity1=0 | inputBlurOpacity2=0 | inputBlurOpacity3=0 | inputBlurOpacity4=0 | inputBlurRadius=0 | inputClamp=1 | inputClampPreserveHue=0 | inputFaceColorMatrixBlack=0.1870968 | inputFaceColorMatrixFillColor=color(0.000000,0.000000,0.000000,0.000000) | inputFaceColorMatrixSaturation=1.3 | inputFaceColorMatrixWhite=0.8370968 | inputFaceOpacity=1 | inputInnerRefractionAmount=-49.6 | inputInnerRefractionHeight=15.5 | inputMaxHeadroom=9999 | inputOuterRefractionAmount=12.4 | inputOuterRefractionHeight=7.75 | inputRefractionDistance0=-1 | inputRefractionDistance1=-0.6666666666666667 | inputRefractionOpacity=0.3 | inputSDRGradientDistance0=-0.6666666666666666 | inputSDRGradientDistance1=-0.3333333333333333 | inputSDRHoldingToneEnabled=1 | inputSDRHoldingToneWhite=0.97 | inputSDRShadowOpacity=0.09999999 | inputShadowAmount=38.75 | inputShadowBlurRadius=0 | inputShadowColorMatrixBlack=0 | inputShadowColorMatrixSaturation=1 | inputShadowColorMatrixWhite=0.5 | inputShadowDistanceOffset=0 | inputShadowHeight=24.8 | inputShadowOffset=NSSize: {0, 8} | inputShadowOpacity=0.38125 | inputShadowRadius=24 | inputShadowVibrancyContribution=0 | inputSourceSublayerName=@0
+                        compositing: __NSCFConstantString normalBlendMode
+                        CASDFLayer frame=(0.0, 0.0, 440.0, 83.0) corner=0.0 opacity=1.0
+                          . effect=CASDFOutputEffect {minimum=-10000, maximum=37.55264962325728}
+                          . smoothness=6
+                          . gaussianRadius=0
+                          . effectOffset=0
+                          . mergeElements=0
+                          . bg=color(0.000000,0.000000) compositing=normalBlendMode
+                          compositing: __NSCFConstantString normalBlendMode
+                          CALayer frame=(0.0, 0.0, 440.0, 83.0) corner=0.0 opacity=1.0
+                            CASDFElementLayer frame=(0.0, 0.0, 0.0, 0.0) corner=0.0 opacity=1.0
+                              . mode=bounds
+                              . contentsZeroValueDistance=0
+                              . contentsOneValueDistance=1
+                              . operation=union
+                              . gradientOvalization=0
+                              . hitTestsAsFill=1
+                              . anims=["match-bounds", "match-position", "match-corner-radius", "match-corner-radii", "match-corner-curve", "match-hidden", "match-mesh"]
+                      CASDFLayer frame=(0.0, 0.0, 440.0, 83.0) corner=0.0 opacity=1.0
+                        . effect=CASDFKeyFillHighlightEffect {keyHeightScale=1, keyHeightOffset=0, keySpreadScale=1, keySpreadOffset=0, fillHeightScale=1, fillHeightOffset=0, fillSpreadScale=1, fillSpreadOffset=0, keyHeight=1, keyAngle=-0.7853981633974483, keySpread=1.570796326794897, keyAmount=0.5, fillHeight=1, fillAngle=2.356194490192345, fillSpread=1.570796326794897, fillAmount=0.5, curvature=0.7, global=0}
+                        . smoothness=6
+                        . gaussianRadius=0
+                        . effectOffset=0
+                        . mergeElements=0
+                        . bg=color(0.000000,0.000000) compositing=normalBlendMode
+                        filter: CAFilter name=vibrantColorMatrix type=vibrantColorMatrix | inputClamp=1 | inputClampPreserveHue=0 | inputColorMatrix=floats[2.649200,-1.180300,-0.118900,0.000000,0.150000,-0.350700,1.819900,-0.119200,0.000000,0.150000,-0.350900,-1.179900,2.880900,0.000000,0.150000,0.000000,0.000000,0.000000,1.000000,0.000000]
+                        compositing: __NSCFConstantString normalBlendMode
+                        CAPortalLayer frame=(0.0, 0.0, 440.0, 83.0) corner=0.0 opacity=1.0
+                          . sourceLayer=<CALayer: 0x106d89aa0>
+                          . sourceLayerRenderId=0
+                          . sourceContextId=0
+                          . hidesSourceLayer=0
+                          . sourceLayerOpacityScale=1
+                          . matchesOpacity=0
+                          . matchesPosition=0
+                          . matchesTransform=0
+                          . allowsBackdropGroups=0
+                          . crossDisplay=0
+                          . excludeSeparated=0
+                          . allowedInContextTransform=0
+                          . hidesSourceLayerInOtherPortals=0
