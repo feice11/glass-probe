@@ -59,10 +59,13 @@ jobs:
             VP=$!
             sleep 1
             case $G in
-              tap) axe tap -x 284 -y 904 --udid "$UDID" ;;
-              hold) axe touch -x 175 -y 904 --down --up --delay 1.5 --udid "$UDID" ;;
+              rest) xcrun simctl io "$UDID" screenshot --type=png "out/${N}_rest.png" ;;
+              hold)
+                axe touch -x 175 -y 904 --down --udid "$UDID"
+                sleep 1.5
+                xcrun simctl io "$UDID" screenshot --type=png "out/${N}_held.png"
+                axe touch -x 175 -y 904 --up --udid "$UDID" ;;
               drag) axe swipe --start-x 66 --start-y 904 --end-x 374 --end-y 904 --duration 2.0 --udid "$UDID" ;;
-              drag2) axe drag --help; axe swipe --start-x 66 --start-y 904 --end-x 374 --end-y 904 --duration 0.5 --udid "$UDID" ;;
             esac
             sleep 3
             kill -INT $VP; wait $VP
@@ -70,13 +73,16 @@ jobs:
             sleep 22
             D=$(xcrun simctl get_app_container "$UDID" ui.feice.probe data)
             cp "$D/Documents/anim.txt" "out/$N.txt"
-            rm -f "$D/Documents/anim.txt"
+            mkdir -p "out/${N}_contents"; cp "$D"/Documents/contents_*.png "out/${N}_contents/" 2>/dev/null
+            rm -f "$D/Documents/anim.txt" "$D"/Documents/contents_*.png
           }
-          run light g50 hold
+          run light checker rest
+          run light vstripes rest
+          run dark checker rest
+          run light checker hold
+          run light vstripes hold
+          run dark checker hold
           run light g50 drag
-          run light g50 drag2
-          run light g50 tap
-          run dark g50 hold
           cp ~/Library/Logs/DiagnosticReports/Probe* out/ 2>/dev/null; ls -la out
       - name: push
         run: |

@@ -204,6 +204,7 @@ final class Watcher: NSObject {
     var seconds = 0.0
     var last: [String: String] = [:]
     var seen = Set<String>()
+    var savedContents = Set<String>()
     var out = ""
 
     func begin(seconds: Double) {
@@ -245,6 +246,15 @@ final class Watcher: NSObject {
                     st += " || props: " + props(p, stopAt: CALayer.self).joined(separator: ", ")
                 }
                 if last[path] != st { lines.append("\(path) \(st)"); last[path] = st }
+                // 图层自带的贴图（光斑这类）存一份 PNG
+                if let c = p.contents, CFGetTypeID(c as CFTypeRef) == CGImage.typeID, !savedContents.contains(path) {
+                    savedContents.insert(path)
+                    let img = UIImage(cgImage: c as! CGImage)
+                    let name = "contents_" + path.replacingOccurrences(of: "/", with: "_") + ".png"
+                    let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(name)
+                    try? img.pngData()?.write(to: url)
+                    lines.append("CONTENTS \(path) \(name) \(c as! CGImage).width x \((c as! CGImage).height) gravity=\(p.contentsGravity.rawValue) scale=\(p.contentsScale)")
+                }
             }
             for key in l.animationKeys() ?? [] {
                 guard let a = l.animation(forKey: key) else { continue }
