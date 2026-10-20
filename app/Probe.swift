@@ -77,6 +77,9 @@ struct Root: View {
     var body: some View {
         content.onAppear {
             if arg("dump", "0") == "1" { DispatchQueue.main.asyncAfter(deadline: .now() + 2) { dumpAll() } }
+            if let sec = Double(arg("watch", "0")), sec > 0 {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) { Watcher.shared.begin(seconds: sec) }
+            }
         }
     }
     @ViewBuilder var content: some View {
@@ -183,4 +186,83 @@ func show(_ v: Any) -> String {
         return "color(" + (c.components ?? []).map { String(format: "%.6f", $0) }.joined(separator: ",") + ")"
     }
     return "\(v)"
+}
+
+
+// 按压逆向：逐帧记录屏幕底部（y > 780pt）图层的 presentation 状态（只记变化），以及新挂上的 CAAnimation 的全部属性。
+// 写到 Documents/anim.txt。时间是相对开始记录的秒数
+final class Watcher: NSObject {
+    static let shared = Watcher()
+    var link: CADisplayLink?
+    var start: CFTimeInterval = 0
+    var seconds = 0.0
+    var last: [String: String] = [:]
+    var seen = Set<String>()
+    var out = ""
+
+    func begin(seconds: Double) {
+        self.seconds = seconds
+        start = CACurrentMediaTime()
+        out += "BEGIN media=\(start)\n"
+        link = CADisplayLink(target: self, selector: #selector(tick))
+        link?.preferredFrameRateRange = CAFrameRateRange(minimum: 60, maximum: 120, preferred: 120)
+        link?.add(to: .main, forMode: .common)
+    }
+
+    @objc func tick() {
+        let t = CACurrentMediaTime() - start
+        var lines: [String] = []
+        for scene in UIApplication.shared.connectedScenes {
+            guard let ws = scene as? UIWindowScene else { continue }
+            for (wi, w) in ws.windows.enumerated() { walk(w.layer, "w\(wi)", w.layer, &lines) }
+        }
+        if !lines.isEmpty { out += String(format: "T %.4f\n", t) + lines.joined(separator: "\n") + "\n" }
+        if t > seconds {
+            link?.invalidate()
+            let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("anim.txt")
+            try? out.write(to: url, atomically: true, encoding: .utf8)
+        }
+    }
+
+    func walk(_ l: CALayer, _ path: String, _ root: CALayer, _ lines: inout [String]) {
+        let r = l.convert(l.bounds, to: root)
+        if r.maxY > 780 || r.height > 900 {
+            let p = l.presentation() ?? l
+            if r.maxY > 780 && r.height < 900 {
+                var st = "\(type(of: l)) pos=\(p.position) bounds=\(p.bounds) anchor=\(p.anchorPoint) win=\(r) op=\(p.opacity) corner=\(p.cornerRadius) hidden=\(p.isHidden)"
+                if !CATransform3DIsIdentity(p.transform) { st += " transform=\(show(NSValue(caTransform3D: p.transform)))" }
+                if !CATransform3DIsIdentity(p.sublayerTransform) { st += " subT=\(show(NSValue(caTransform3D: p.sublayerTransform)))" }
+                for f in p.filters ?? [] { st += " || filter: " + describeFilter(f) }
+                for f in p.backgroundFilters ?? [] { st += " || bg: " + describeFilter(f) }
+                let cls = "\(type(of: l))"
+                if ["SDF", "Portal", "Backdrop"].contains(where: { cls.contains($0) }) {
+                    st += " || props: " + props(p, stopAt: CALayer.self).joined(separator: ", ")
+                }
+                if last[path] != st { lines.append("\(path) \(st)"); last[path] = st }
+            }
+            for key in l.animationKeys() ?? [] {
+                guard let a = l.animation(forKey: key) else { continue }
+                let id = "\(path)#\(key)#\(a.beginTime)"
+                if seen.contains(id) { continue }
+                seen.insert(id)
+                lines.append("ANIM \(path) \(type(of: l)) key=\(key) " + describeAnim(a))
+            }
+        }
+        for (i, s) in (l.sublayers ?? []).enumerated() { walk(s, path + "/\(i)", root, &lines) }
+    }
+}
+
+func describeAnim(_ a: CAAnimation) -> String {
+    var parts = ["\(type(of: a))"]
+    parts += props(a, stopAt: NSObject.self)
+    if let tf = a.timingFunction {
+        var c1: [Float] = [0, 0], c2: [Float] = [0, 0]
+        tf.getControlPoint(at: 1, values: &c1)
+        tf.getControlPoint(at: 2, values: &c2)
+        parts.append("timing=(\(c1[0]),\(c1[1]),\(c2[0]),\(c2[1]))")
+    }
+    if let g = a as? CAAnimationGroup {
+        for (i, s) in (g.animations ?? []).enumerated() { parts.append("[sub\(i): " + describeAnim(s) + "]") }
+    }
+    return parts.joined(separator: " ; ")
 }
