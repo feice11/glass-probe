@@ -24,6 +24,8 @@ struct Background: View {
             func fill(_ r: CGRect, _ c: Color) { ctx.fill(Path(r), with: .color(c)) }
             let w = size.width, h = size.height
             switch scene {
+            case let g where g.hasPrefix("g") && Double(g.dropFirst()) != nil:
+                fill(CGRect(origin: .zero, size: size), Color(.sRGB, white: Double(g.dropFirst())! / 100))
             case "black": fill(CGRect(origin: .zero, size: size), .black)
             case "white": fill(CGRect(origin: .zero, size: size), .white)
             case "gray": fill(CGRect(origin: .zero, size: size), Color(.sRGB, white: 0.5))
@@ -115,7 +117,14 @@ func props(_ obj: NSObject, stopAt: AnyClass) -> [String] {
         if let list = class_copyPropertyList(cls, &n) {
             for i in 0..<Int(n) {
                 let name = String(cString: property_getName(list[i]))
-                if let v = obj.value(forKey: name) { out.append("\(name)=\(v)") }
+                if ["description", "debugDescription", "hash", "superclass", "statistics"].contains(name) { continue }
+                if let v = obj.value(forKey: name) {
+                    if let e = v as? NSObject, "\(type(of: e))".hasPrefix("CASDF") {
+                        out.append("\(name)=\(type(of: e)) {" + props(e, stopAt: NSObject.self).joined(separator: ", ") + "}")
+                    } else {
+                        out.append("\(name)=\(show(v))")
+                    }
+                }
             }
             free(list)
         }
@@ -127,7 +136,7 @@ func props(_ obj: NSObject, stopAt: AnyClass) -> [String] {
 func describeFilter(_ f: Any) -> String {
     guard let o = f as? NSObject else { return "\(f)" }
     var parts = ["\(type(of: o)) name=\(o.value(forKey: "name") ?? "-")"]
-    for k in inputKeys { if let v = o.value(forKey: k) { parts.append("\(k)=\(v)") } }
+    for k in inputKeys { if let v = o.value(forKey: k) { parts.append("\(k)=\(show(v))") } }
     return parts.joined(separator: " | ")
 }
 
@@ -135,7 +144,8 @@ func dumpLayer(_ l: CALayer, _ depth: Int, _ out: inout String) {
     let pad = String(repeating: "  ", count: depth)
     out += "\(pad)\(type(of: l)) frame=\(l.frame) corner=\(l.cornerRadius) opacity=\(l.opacity)\n"
     let cls = "\(type(of: l))"
-    if !(cls == "CALayer") { for p in props(l, stopAt: CALayer.self) { out += "\(pad)  . \(p)\n" } }
+    let interesting = ["SDF", "Backdrop", "Glass", "Portal"].contains { cls.contains($0) }
+    if interesting { for p in props(l, stopAt: CALayer.self) { out += "\(pad)  . \(p)\n" } }
     for f in l.filters ?? [] { out += "\(pad)  filter: \(describeFilter(f))\n" }
     for f in l.backgroundFilters ?? [] { out += "\(pad)  bgfilter: \(describeFilter(f))\n" }
     if let f = l.compositingFilter { out += "\(pad)  compositing: \(describeFilter(f))\n" }
@@ -150,4 +160,13 @@ func dumpAll() {
     }
     let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("dump.txt")
     try? out.write(to: url, atomically: true, encoding: .utf8)
+}
+
+func show(_ v: Any) -> String {
+    if let d = v as? Data { return "data[" + d.map { String(format: "%02x", $0) }.joined() + "]" }
+    if CFGetTypeID(v as CFTypeRef) == CGColor.typeID {
+        let c = v as! CGColor
+        return "color(" + (c.components ?? []).map { String(format: "%.6f", $0) }.joined(separator: ",") + ")"
+    }
+    return "\(v)"
 }
