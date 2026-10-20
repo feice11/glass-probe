@@ -45,7 +45,7 @@ jobs:
           for MODE in light dark; do
             xcrun simctl ui "$UDID" appearance $MODE
             for G in capsule tabbar clear; do
-              SC="g50"; [ "$G" = capsule ] && SC="g00 g10 g20 g30 g40 g50 g60 g70 g80 g90 g100 red green blue"
+              SC="g50"
               for S in $SC; do
                 xcrun simctl terminate "$UDID" ui.feice.probe 2>/dev/null || true
                 xcrun simctl launch "$UDID" ui.feice.probe -scene $S -glass $G -dump 1
@@ -57,7 +57,7 @@ jobs:
               done
             done
           done
-          ls -la out
+          cp ~/Library/Logs/DiagnosticReports/Probe* out/ 2>/dev/null; ls -la out
       - name: push
         run: |
           cd out

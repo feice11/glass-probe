@@ -117,6 +117,11 @@ func props(_ obj: NSObject, stopAt: AnyClass) -> [String] {
         if let list = class_copyPropertyList(cls, &n) {
             for i in 0..<Int(n) {
                 let name = String(cString: property_getName(list[i]))
+                let attrs = String(cString: property_getAttributes(list[i]) ?? "")
+                var getter = name
+                if let g = attrs.split(separator: ",").first(where: { $0.hasPrefix("G") }) { getter = String(g.dropFirst()) }
+                if !obj.responds(to: Selector(getter)) { continue }
+                if attrs.hasPrefix("T^") || attrs.hasPrefix("T?") || attrs.hasPrefix("T*") { continue }
                 if ["description", "debugDescription", "hash", "superclass", "statistics"].contains(name) { continue }
                 if let v = obj.value(forKey: name) {
                     if let e = v as? NSObject, "\(type(of: e))".hasPrefix("CASDF") {
@@ -163,6 +168,15 @@ func dumpAll() {
 }
 
 func show(_ v: Any) -> String {
+    if let nv = v as? NSValue, !(v is NSNumber) {
+        var size = 0
+        NSGetSizeAndAlignment(nv.objCType, &size, nil)
+        if size == 80 {
+            var f = [Float](repeating: 0, count: 20)
+            nv.getValue(&f, size: 80)
+            return "floats[" + f.map { String(format: "%.6f", $0) }.joined(separator: ",") + "]"
+        }
+    }
     if let d = v as? Data { return "data[" + d.map { String(format: "%02x", $0) }.joined() + "]" }
     if CFGetTypeID(v as CFTypeRef) == CGColor.typeID {
         let c = v as! CGColor
