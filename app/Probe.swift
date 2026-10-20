@@ -77,6 +77,7 @@ struct Root: View {
     var body: some View {
         content.onAppear {
             if arg("dump", "0") == "1" { DispatchQueue.main.asyncAfter(deadline: .now() + 2) { dumpAll() } }
+            if arg("colors", "0") == "1" { dumpColors() }
             if let sec = Double(arg("watch", "0")), sec > 0 {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) { Watcher.shared.begin(seconds: sec) }
             }
@@ -270,4 +271,57 @@ func describeAnim(_ a: CAAnimation) -> String {
         for (i, s) in (g.animations ?? []).enumerated() { parts.append("[sub\(i): " + describeAnim(s) + "]") }
     }
     return parts.joined(separator: " ; ")
+}
+
+// 读系统语义色：浅色 / 深色 × 普通 / 高对比 × 基础 / 抬升层级，各解析成 extended sRGB 分量，写到 Documents/colors.txt
+func dumpColors() {
+    let named: [(String, UIColor)] = [
+        ("systemRed", .systemRed), ("systemOrange", .systemOrange), ("systemYellow", .systemYellow), ("systemGreen", .systemGreen),
+        ("systemMint", .systemMint), ("systemTeal", .systemTeal), ("systemCyan", .systemCyan), ("systemBlue", .systemBlue),
+        ("systemIndigo", .systemIndigo), ("systemPurple", .systemPurple), ("systemPink", .systemPink), ("systemBrown", .systemBrown),
+        ("systemGray", .systemGray), ("systemGray2", .systemGray2), ("systemGray3", .systemGray3), ("systemGray4", .systemGray4),
+        ("systemGray5", .systemGray5), ("systemGray6", .systemGray6), ("tintColor", .tintColor),
+        ("label", .label), ("secondaryLabel", .secondaryLabel), ("tertiaryLabel", .tertiaryLabel), ("quaternaryLabel", .quaternaryLabel),
+        ("placeholderText", .placeholderText), ("link", .link), ("separator", .separator), ("opaqueSeparator", .opaqueSeparator),
+        ("systemBackground", .systemBackground), ("secondarySystemBackground", .secondarySystemBackground),
+        ("tertiarySystemBackground", .tertiarySystemBackground), ("systemGroupedBackground", .systemGroupedBackground),
+        ("secondarySystemGroupedBackground", .secondarySystemGroupedBackground),
+        ("tertiarySystemGroupedBackground", .tertiarySystemGroupedBackground),
+        ("systemFill", .systemFill), ("secondarySystemFill", .secondarySystemFill), ("tertiarySystemFill", .tertiarySystemFill),
+        ("quaternarySystemFill", .quaternarySystemFill), ("lightText", .lightText), ("darkText", .darkText),
+    ]
+    func comps(_ c: UIColor) -> String {
+        var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
+        c.getRed(&r, green: &g, blue: &b, alpha: &a)
+        let cs = (c.cgColor.colorSpace?.name as String?) ?? "?"
+        let raw = (c.cgColor.components ?? []).map { String(format: "%.6f", $0) }.joined(separator: ",")
+        return String(format: "%.6f %.6f %.6f %.6f", r, g, b, a) + " " + cs + " [" + raw + "]"
+    }
+    var out = ""
+    for style in [UIUserInterfaceStyle.light, .dark] {
+        for contrast in [UIAccessibilityContrast.normal, .high] {
+            for level in [UIUserInterfaceLevel.base, .elevated] {
+                let tc = UITraitCollection(traitsFrom: [
+                    UITraitCollection(userInterfaceStyle: style),
+                    UITraitCollection(accessibilityContrast: contrast),
+                    UITraitCollection(userInterfaceLevel: level),
+                ])
+                let key = "\(style == .dark ? "dark" : "light") \(contrast == .high ? "high" : "normal") \(level == .elevated ? "elevated" : "base")"
+                for (n, c) in named { out += "\(key) \(n) \(comps(c.resolvedColor(with: tc)))\n" }
+                tc.performAsCurrent {
+                    let configs: [(String, UIButton.Configuration)] = [
+                        ("filled", .filled()), ("tinted", .tinted()), ("gray", .gray()), ("plain", .plain()),
+                        ("borderedProminent", .borderedProminent()), ("bordered", .bordered()), ("borderedTinted", .borderedTinted()),
+                    ]
+                    for (n, cfg) in configs {
+                        let bg = cfg.background.resolvedBackgroundColor(for: .systemBlue).resolvedColor(with: tc)
+                        out += "\(key) button.\(n).background \(comps(bg))\n"
+                        if let fg = cfg.baseForegroundColor { out += "\(key) button.\(n).foreground \(comps(fg.resolvedColor(with: tc)))\n" }
+                    }
+                }
+            }
+        }
+    }
+    let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("colors.txt")
+    try? out.write(to: url, atomically: true, encoding: .utf8)
 }
