@@ -77,7 +77,7 @@ struct Root: View {
     var body: some View {
         content.onAppear {
             if arg("dump", "0") == "1" { DispatchQueue.main.asyncAfter(deadline: .now() + 2) { dumpAll() } }
-            if arg("colors", "0") == "1" { dumpColors() }
+            if arg("colors", "0") == "1" { dumpColors(); DispatchQueue.main.asyncAfter(deadline: .now() + 1) { dumpButtons() } }
             if let sec = Double(arg("watch", "0")), sec > 0 {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) { Watcher.shared.begin(seconds: sec) }
             }
@@ -323,5 +323,47 @@ func dumpColors() {
         }
     }
     let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("colors.txt")
+    try? out.write(to: url, atomically: true, encoding: .utf8)
+}
+
+// 把各种配置的按钮真的放进窗口布局一遍，读它的底色视图（tinted / gray / filled 这些在 iOS 26 的真实底色）
+func dumpButtons() {
+    guard let win = UIApplication.shared.connectedScenes.compactMap({ ($0 as? UIWindowScene)?.windows.first }).first else { return }
+    var out = ""
+    for style in [UIUserInterfaceStyle.light, .dark] {
+        win.overrideUserInterfaceStyle = style
+        let configs: [(String, UIButton.Configuration)] = [
+            ("filled", .filled()), ("tinted", .tinted()), ("gray", .gray()), ("plain", .plain()),
+            ("borderedProminent", .borderedProminent()), ("bordered", .bordered()), ("borderedTinted", .borderedTinted()),
+        ]
+        for (n, cfg) in configs {
+            var c = cfg
+            c.title = "Button"
+            let b = UIButton(configuration: c)
+            b.frame = CGRect(x: 20, y: 200, width: 200, height: 50)
+            win.addSubview(b)
+            b.layoutIfNeeded()
+            CATransaction.flush()
+            func walk(_ v: UIView, _ d: Int) {
+                let bg = v.backgroundColor.map { col -> String in
+                    var r: CGFloat = 0, g: CGFloat = 0, bl: CGFloat = 0, a: CGFloat = 0
+                    col.resolvedColor(with: win.traitCollection).getRed(&r, green: &g, blue: &bl, alpha: &a)
+                    return String(format: "%.6f %.6f %.6f %.6f", r, g, bl, a)
+                } ?? "-"
+                var lb = "-"
+                if let cg = v.layer.backgroundColor, let comps = cg.components { lb = comps.map { String(format: "%.6f", $0) }.joined(separator: ",") + " " + ((cg.colorSpace?.name as String?) ?? "") }
+                let tc = (v as? UILabel).map { l -> String in
+                    var r: CGFloat = 0, g: CGFloat = 0, bl: CGFloat = 0, a: CGFloat = 0
+                    l.textColor.resolvedColor(with: win.traitCollection).getRed(&r, green: &g, blue: &bl, alpha: &a)
+                    return String(format: " text=%.6f %.6f %.6f %.6f", r, g, bl, a)
+                } ?? ""
+                out += "\(style == .dark ? "dark" : "light") \(n) \(String(repeating: " ", count: d))\(type(of: v)) bg=\(bg) layer=\(lb) frame=\(v.frame)\(tc)\n"
+                for s in v.subviews { walk(s, d + 1) }
+            }
+            walk(b, 0)
+            b.removeFromSuperview()
+        }
+    }
+    let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("buttons.txt")
     try? out.write(to: url, atomically: true, encoding: .utf8)
 }

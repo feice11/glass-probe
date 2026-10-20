@@ -43,7 +43,7 @@ jobs:
           xcrun simctl launch "$UDID" ui.feice.probe -glass none -colors 1
           sleep 8
           D=$(xcrun simctl get_app_container "$UDID" ui.feice.probe data)
-          cp "$D/Documents/colors.txt" out/
+          cp "$D/Documents/colors.txt" "$D/Documents/buttons.txt" out/
           cp ~/Library/Logs/DiagnosticReports/Probe* out/ 2>/dev/null; wc -l out/*
       - name: push
         run: |
