@@ -32,12 +32,12 @@ jobs:
           codesign -s - --force Probe.app
       - name: shots
         run: |
-          set -x
+          set +e -x
           xcrun simctl list devicetypes | grep -i iphone
           xcrun simctl list runtimes
           RT=$(xcrun simctl list runtimes | grep -o 'com.apple.CoreSimulator.SimRuntime.iOS-26-5' | head -1)
           mkdir -p out
-          for DT in "iPhone SE (3rd generation)" "iPhone 17 Pro"; do
+          for DT in "iPhone 17 Pro Max" "iPhone SE (3rd generation)"; do
             TYPE=$(xcrun simctl list devicetypes | grep -F "$DT (" | sed -E 's/.*\((com[^)]*)\).*/\1/' | head -1)
             [ -z "$TYPE" ] && { echo "无 $DT"; continue; }
             TAG=$(echo "$DT" | tr -cd 'A-Za-z0-9')
@@ -49,8 +49,8 @@ jobs:
               xcrun simctl ui "$UDID" appearance $MODE
               for G in capsule none tabbar circle clear; do
                 for S in black white gray red green blue hstripes vstripes checker ramp edge hues; do
-                  xcrun simctl terminate "$UDID" ui.feice.probe 2>/dev/null
-                  xcrun simctl launch "$UDID" ui.feice.probe -scene $S -glass $G
+                  xcrun simctl terminate "$UDID" ui.feice.probe 2>/dev/null || true
+                  xcrun simctl launch "$UDID" ui.feice.probe -scene $S -glass $G || true
                   sleep 2.5
                   xcrun simctl io "$UDID" screenshot --type=png "out/${TAG}_${MODE}_${G}_${S}.png"
                 done
