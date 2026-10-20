@@ -1,5 +1,7 @@
 name: shots
 on: workflow_dispatch
+permissions:
+  contents: write
 jobs:
   shots:
     runs-on: macos-26
@@ -37,7 +39,7 @@ jobs:
           xcrun simctl list runtimes
           RT=$(xcrun simctl list runtimes | grep -o 'com.apple.CoreSimulator.SimRuntime.iOS-26-5' | head -1)
           mkdir -p out
-          for DT in "iPhone 17 Pro Max" "iPhone SE (3rd generation)"; do
+          for DT in "iPhone 17 Pro Max"; do
             TYPE=$(xcrun simctl list devicetypes | grep -F "$DT (" | sed -E 's/.*\((com[^)]*)\).*/\1/' | head -1)
             [ -z "$TYPE" ] && { echo "无 $DT"; continue; }
             TAG=$(echo "$DT" | tr -cd 'A-Za-z0-9')
@@ -59,7 +61,10 @@ jobs:
             xcrun simctl shutdown "$UDID"
           done
           ls out | wc -l
-      - uses: actions/upload-artifact@v4
-        with:
-          name: shots
-          path: out
+      - name: push
+        run: |
+          cd out
+          git init -q -b shots
+          git -c user.name=probe -c user.email=probe@local add -A
+          git -c user.name=probe -c user.email=probe@local commit -qm shots
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" shots
