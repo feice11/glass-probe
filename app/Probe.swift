@@ -139,7 +139,7 @@ func props(_ obj: NSObject, stopAt: AnyClass) -> [String] {
 }
 
 func describeFilter(_ f: Any) -> String {
-    guard let o = f as? NSObject else { return "\(f)" }
+    guard let o = f as? NSObject, "\(type(of: o))".contains("Filter") else { return "\(type(of: f)) \(f)" }
     var parts = ["\(type(of: o)) name=\(o.value(forKey: "name") ?? "-")"]
     for k in inputKeys { if let v = o.value(forKey: k) { parts.append("\(k)=\(show(v))") } }
     return parts.joined(separator: " | ")

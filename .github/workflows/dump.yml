@@ -44,7 +44,7 @@ jobs:
           mkdir -p out
           for MODE in light dark; do
             xcrun simctl ui "$UDID" appearance $MODE
-            for G in capsule tabbar clear; do
+            for G in tabbar; do
               SC="g50"
               for S in $SC; do
                 xcrun simctl terminate "$UDID" ui.feice.probe 2>/dev/null || true
