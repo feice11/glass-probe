@@ -1,0 +1,77 @@
+name: tint
+on: workflow_dispatch
+permissions:
+  contents: write
+jobs:
+  tint:
+    runs-on: macos-26
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: build
+        run: |
+          set -ex
+          mkdir -p Probe.app
+          xcrun -sdk iphonesimulator swiftc -parse-as-library -O \
+            -target arm64-apple-ios26.0-simulator app/Probe.swift -o Probe.app/Probe
+          cat > Probe.app/Info.plist <<'EOF'
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0"><dict>
+          <key>CFBundleIdentifier</key><string>ui.feice.probe</string>
+          <key>CFBundleExecutable</key><string>Probe</string>
+          <key>CFBundleName</key><string>Probe</string>
+          <key>CFBundlePackageType</key><string>APPL</string>
+          <key>CFBundleVersion</key><string>1</string>
+          <key>CFBundleShortVersionString</key><string>1.0</string>
+          <key>MinimumOSVersion</key><string>26.0</string>
+          <key>UIDeviceFamily</key><array><integer>1</integer></array>
+          <key>UILaunchScreen</key><dict/>
+          <key>UIRequiresFullScreen</key><true/>
+          </dict></plist>
+          EOF
+          codesign -s - --force Probe.app
+      - name: dump
+        run: |
+          set +e -x
+          RT=$(xcrun simctl list runtimes | grep -o 'com.apple.CoreSimulator.SimRuntime.iOS-26-5' | head -1)
+          TYPE=com.apple.CoreSimulator.SimDeviceType.iPhone-17-Pro-Max
+          UDID=$(xcrun simctl create probe "$TYPE" "$RT")
+          xcrun simctl boot "$UDID"
+          xcrun simctl bootstatus "$UDID" -b
+          xcrun simctl install "$UDID" Probe.app
+          mkdir -p out
+          # 通透度存在 UIKit 的偏好里（UIViewGlassTintAmount，Float，0.05 一格）；不确定是哪个域，几个都写，启动参数里也带一份
+          for T in 0 0.25 0.5 0.75 1; do
+            for DOM in com.apple.UIKit -g ui.feice.probe; do
+              xcrun simctl spawn "$UDID" defaults write $DOM UIViewGlassTintAmount -float $T
+            done
+            for MODE in light dark; do
+              xcrun simctl ui "$UDID" appearance $MODE
+              for S in g25 g75; do
+                xcrun simctl terminate "$UDID" ui.feice.probe 2>/dev/null || true
+                xcrun simctl launch "$UDID" ui.feice.probe -scene $S -glass capsule -dump 1 -UIViewGlassTintAmount $T
+                sleep 6
+                D=$(xcrun simctl get_app_container "$UDID" ui.feice.probe data)
+                cp "$D/Documents/dump.txt" "out/t${T}_${MODE}_${S}.txt"
+                rm -f "$D/Documents/dump.txt"
+                xcrun simctl io "$UDID" screenshot --type=png "out/t${T}_${MODE}_${S}.png"
+              done
+            done
+          done
+          xcrun simctl spawn "$UDID" defaults read com.apple.UIKit > out/defaults_uikit.txt 2>&1
+          # 各档之间玻璃滤镜参数有没有变
+          for M in light dark; do
+            for S in g25 g75; do
+              diff out/t0.5_${M}_${S}.txt out/t0_${M}_${S}.txt > out/diff_${M}_${S}_0.txt
+              diff out/t0.5_${M}_${S}.txt out/t1_${M}_${S}.txt > out/diff_${M}_${S}_1.txt
+            done
+          done
+          wc -l out/diff_*; ls -la out
+      - name: push
+        run: |
+          cd out
+          git init -q -b tint
+          git -c user.name=probe -c user.email=probe@local add -A
+          git -c user.name=probe -c user.email=probe@local commit -qm tint
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" tint
