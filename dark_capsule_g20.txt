@@ -1,0 +1,94 @@
+UIWindowLayer frame=(0.0, 0.0, 440.0, 956.0) corner=0.0 opacity=1.0
+  CALayer frame=(0.0, 0.0, 440.0, 956.0) corner=0.0 opacity=1.0
+    _UIMultiLayer frame=(0.0, 0.0, 440.0, 956.0) corner=0.0 opacity=1.0
+      CALayer frame=(0.0, 0.0, 440.0, 956.0) corner=0.0 opacity=1.0
+        CALayer frame=(0.0, 0.0, 440.0, 956.0) corner=0.0 opacity=1.0
+          . bg=color(0.000000,1.000000) compositing=nil
+          RBDrawingLayer frame=(0.0, 0.0, 440.0, 956.0) corner=0.0 opacity=1.0
+            RBImageQueueLayer frame=(0.0, 0.0, 0.0, 0.0) corner=0.0 opacity=1.0
+          CALayer frame=(70.0, 461.0, 300.0, 62.0) corner=0.0 opacity=1.0
+            SDFLayer frame=(0.0, 0.0, 300.0, 62.0) corner=0.0 opacity=1.0
+              CALayer frame=(0.0, 0.0, 0.0, 0.0) corner=0.0 opacity=1.0
+              CALayer frame=(1.4210854715202004e-14, 0.0, 300.0, 62.0) corner=0.0 opacity=1.0
+                CABackdropLayer frame=(1.4210854715202004e-14, 0.0, 300.0, 62.0) corner=0.0 opacity=1.0
+                  . mt_colorMatrixDrivenOpacity=1
+                  . mt_colorMatrixDrivenInoperativeOpacity=1
+                  . enabled=1
+                  . groupName=SwiftUI:4.00.0
+                  . usesGlobalGroupNamespace=0
+                  . groupNamespace=owningContext
+                  . scale=0.25
+                  . backdropRect=NSRect: {{0, 0}, {0, 0}}
+                  . marginWidth=12.4
+                  . disablesOccludedBackdropBlurs=0
+                  . captureOnly=0
+                  . allowsInPlaceFiltering=0
+                  . reducesCaptureBitDepth=0
+                  . ignoresScreenClip=0
+                  . preallocatesScreenArea=0
+                  . inverseMeshed=0
+                  . zoom=0
+                  . disableFilterCache=0
+                  . updateRate=0
+                  . tracksLuma=1
+                  . tracksLumaWhileHidden=0
+                  . lumaUpdateRate=0.25
+                  . allowsFilteredLuma=1
+                  . lumaSubrect=NSRect: {{0, 0}, {0, 0}}
+                  . delegate=<SwiftUI.SDFLayer: 0x1039ad8c0>
+                  filter: CAFilter name=glassBackground type=glassBackground | inputBleedAmount=21.7 | inputBleedBlurRadius=0 | inputBleedColorMatrixBlack=0 | inputBleedColorMatrixSaturation=1 | inputBleedColorMatrixWhite=0.5 | inputBleedDarkenBlend=0 | inputBleedDistance0=1 | inputBleedDistance1=0 | inputBleedHeight=21.7 | inputBleedOpacity=0 | inputBlurDistance0=-31 | inputBlurDistance1=-1 | inputBlurDistance2=0 | inputBlurDistance3=0 | inputBlurDistance4=12.4 | inputBlurOpacity0=1 | inputBlurOpacity1=0.5 | inputBlurOpacity2=0.5 | inputBlurOpacity3=1 | inputBlurOpacity4=1 | inputBlurRadius=1.666666666666667 | inputClamp=1 | inputClampPreserveHue=0 | inputFaceColorMatrixBlack=0.1 | inputFaceColorMatrixFillColor=color(0.000000,0.000000,0.000000,0.328125) | inputFaceColorMatrixSaturation=1 | inputFaceColorMatrixWhite=0.66875 | inputFaceOpacity=1 | inputInnerRefractionAmount=-49.6 | inputInnerRefractionHeight=15.5 | inputMaxHeadroom=9999 | inputOuterRefractionAmount=12.4 | inputOuterRefractionHeight=7.75 | inputRefractionDistance0=-1 | inputRefractionDistance1=-0.6666666666666667 | inputRefractionOpacity=0.3 | inputSDRGradientDistance0=-0.6666666666666666 | inputSDRGradientDistance1=-0.3333333333333333 | inputSDRHoldingToneEnabled=1 | inputSDRHoldingToneWhite=0.97 | inputSDRShadowOpacity=0.09999999 | inputShadowAmount=38.75 | inputShadowBlurRadius=0 | inputShadowColorMatrixBlack=0 | inputShadowColorMatrixSaturation=1 | inputShadowColorMatrixWhite=0.5 | inputShadowDistanceOffset=0 | inputShadowHeight=24.8 | inputShadowOffset=NSSize: {0, 8} | inputShadowOpacity=0.38125 | inputShadowRadius=24 | inputShadowVibrancyContribution=0 | inputSourceSublayerName=@0
+                  CASDFLayer frame=(1.4210854715202004e-14, 0.0, 300.0, 62.0) corner=0.0 opacity=1.0
+                    . effect=CASDFOutputEffect {minimum=-10000, maximum=37.55264962325728}
+                    . smoothness=8
+                    . gaussianRadius=0
+                    . effectOffset=0
+                    . mergeElements=0
+                    CALayer frame=(0.0, 0.0, 0.0, 0.0) corner=0.0 opacity=1.0
+                      CASDFElementLayer frame=(1.4210854715202004e-14, 0.0, 300.0, 62.0) corner=31.0 opacity=1.0
+                        . mode=bounds
+                        . contentsZeroValueDistance=0
+                        . contentsOneValueDistance=1
+                        . operation=union
+                        . gradientOvalization=0
+                        . hitTestsAsFill=1
+                SDFPortalLayer frame=(1.4210854715202004e-14, 0.0, 300.0, 62.0) corner=0.0 opacity=1.0
+                  . sourceLayer=<CALayer: 0x103bc4d20>
+                  . sourceLayerRenderId=18259380329425579721
+                  . sourceContextId=4062121218
+                  . sourceLayer=<CALayer: 0x103bc4d20>
+                  . sourceLayerRenderId=18259380329425579721
+                  . sourceContextId=4062121218
+                  . hidesSourceLayer=1
+                  . sourceLayerOpacityScale=1
+                  . matchesOpacity=0
+                  . matchesPosition=0
+                  . matchesTransform=0
+                  . allowsBackdropGroups=0
+                  . crossDisplay=0
+                  . excludeSeparated=0
+                  . allowedInContextTransform=0
+                  . hidesSourceLayerInOtherPortals=0
+                CASDFLayer frame=(1.4210854715202004e-14, 0.0, 300.0, 62.0) corner=0.0 opacity=1.0
+                  . effect=CASDFKeyFillHighlightEffect {keyHeightScale=1, keyHeightOffset=0, keySpreadScale=1, keySpreadOffset=0, fillHeightScale=1, fillHeightOffset=0, fillSpreadScale=1, fillSpreadOffset=0, keyHeight=1, keyAngle=-0.7853981633974483, keySpread=1.570796326794897, keyAmount=0.5, fillHeight=1, fillAngle=2.356194490192345, fillSpread=1.570796326794897, fillAmount=0.5, curvature=0.7, global=0}
+                  . smoothness=8
+                  . gaussianRadius=0
+                  . effectOffset=0
+                  . mergeElements=0
+                  filter: CAFilter name=vibrantColorMatrix type=vibrantColorMatrix | inputClamp=1 | inputColorMatrix=floats[2.649200,-1.180300,-0.118900,0.000000,0.150000,-0.350700,1.819900,-0.119200,0.000000,0.150000,-0.350900,-1.179900,2.880900,0.000000,0.150000,0.000000,0.000000,0.000000,1.000000,0.000000]
+                  SDFPortalLayer frame=(0.0, 0.0, 0.0, 0.0) corner=0.0 opacity=1.0
+                    . sourceLayer=<CALayer: 0x103bc46c0>
+                    . sourceLayerRenderId=18259380329425581001
+                    . sourceContextId=4062121218
+                    . sourceLayer=<CALayer: 0x103bc46c0>
+                    . sourceLayerRenderId=18259380329425581001
+                    . sourceContextId=4062121218
+                    . hidesSourceLayer=0
+                    . sourceLayerOpacityScale=1
+                    . matchesOpacity=0
+                    . matchesPosition=0
+                    . matchesTransform=0
+                    . allowsBackdropGroups=0
+                    . crossDisplay=0
+                    . excludeSeparated=0
+                    . allowedInContextTransform=0
+                    . hidesSourceLayerInOtherPortals=0
