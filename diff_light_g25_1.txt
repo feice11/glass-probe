@@ -1,0 +1,32 @@
+38c38
+<                   . delegate=<SwiftUI.SDFLayer: 0x101db89c0>
+---
+>                   . delegate=<SwiftUI.SDFLayer: 0x1013258c0>
+55,60c55,60
+<                   . sourceLayer=<CALayer: 0x101c42c70>
+<                   . sourceLayerRenderId=12946485041679180480
+<                   . sourceContextId=771481810
+<                   . sourceLayer=<CALayer: 0x101c42c70>
+<                   . sourceLayerRenderId=12946485041679180480
+<                   . sourceContextId=771481810
+---
+>                   . sourceLayer=<CALayer: 0x1013a0510>
+>                   . sourceLayerRenderId=17604253951343914864
+>                   . sourceContextId=955149028
+>                   . sourceLayer=<CALayer: 0x1013a0510>
+>                   . sourceLayerRenderId=17604253951343914864
+>                   . sourceContextId=955149028
+79,84c79,84
+<                     . sourceLayer=<CALayer: 0x101c43180>
+<                     . sourceLayerRenderId=12946485041679181760
+<                     . sourceContextId=771481810
+<                     . sourceLayer=<CALayer: 0x101c43180>
+<                     . sourceLayerRenderId=12946485041679181760
+<                     . sourceContextId=771481810
+---
+>                     . sourceLayer=<CALayer: 0x1013a0420>
+>                     . sourceLayerRenderId=17604253951343916144
+>                     . sourceContextId=955149028
+>                     . sourceLayer=<CALayer: 0x1013a0420>
+>                     . sourceLayerRenderId=17604253951343916144
+>                     . sourceContextId=955149028
