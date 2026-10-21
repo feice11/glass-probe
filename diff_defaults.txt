@@ -1,0 +1,223 @@
+15a16
+>         PKLogNotificationServiceResponsesKey = 0;
+24a26,35
+>                 "PriorityProcessing+Embedding" =                 {
+>                     timestamp = "814298827.213994";
+>                     timestampLastReplenished = "814298817.1483841";
+>                     tokenCount = 1500;
+>                 };
+>                 "PriorityProcessing+Keyphrase" =                 {
+>                     timestamp = "814298827.22348";
+>                     timestampLastReplenished = "814298817.1621081";
+>                     tokenCount = 1500;
+>                 };
+509a521
+>                     "You don\\U2019t have permission to save the file \\U201cAccessibility\\U201d in the folder \\U201cLibrary\\U201d."
+586a599
+>         "avocado.systemMediumWidth" = 378;
+590c603
+<         AccountInfoValidationCounter = 32;
+---
+>         AccountInfoValidationCounter = 37;
+605a619,629
+>     "com.apple.FamilyControlsAgent" =     {
+>         CKPerBootTasks =         (
+>             CKAccountInfoCacheReset
+>         );
+>         CKStartupTime = 1792605767;
+>         CloudKitAccountInfoCache =         {
+>             703ba8f63bdae00a37ff37317a821f69892b8aaac8adb38f53f614ab3b872520 = {length = 521, bytes = 0x62706c69 73743030 d4010203 04050607 ... 00000000 0000019b };
+>         };
+>         DidMigrateRecordNames = 1;
+>         didMigrateSharingAppleIDs = 1;
+>     };
+649a674,682
+>     "com.apple.Maps.mapssyncd" =     {
+>         CKPerBootTasks =         (
+>             CKAccountInfoCacheReset
+>         );
+>         CKStartupTime = 1792605767;
+>         CloudKitAccountInfoCache =         {
+>             e30a6ddbb34dc219d5eec58a034494eef2e10a3ca6e5a93b1b3406c8da4cdfe6 = {length = 521, bytes = 0x62706c69 73743030 d4010203 04050607 ... 00000000 0000019b };
+>         };
+>     };
+693c726
+<         "PSCoreSpolight_LSSequenceNumber" = 700;
+---
+>         "PSCoreSpolight_LSSequenceNumber" = 708;
+722a756,758
+>         CloudKitAccountInfoCache =         {
+>             2b3de799861e14b04addec7e2f751b30c50441f04acc2955c1af16d72e36d330 = {length = 521, bytes = 0x62706c69 73743030 d4010203 04050607 ... 00000000 0000019b };
+>         };
+728a765,767
+>         CloudKitAccountInfoCache =         {
+>             058c0f8279082726a85bac756c129cbb833e4f09f9ed20da2b756a26bd1c328b = {length = 521, bytes = 0x62706c69 73743030 d4010203 04050607 ... 00000000 0000019b };
+>         };
+741a781,783
+>         CloudKitAccountInfoCache =         {
+>             3902b2981283e580a9da1ac08c3d62865213f45d1f05b9813a67ecb44fc70ae5 = {length = 521, bytes = 0x62706c69 73743030 d4010203 04050607 ... 00000000 0000019b };
+>         };
+818a861,864
+>         CloudKitAccountInfoCache =         {
+>             3904f14399021895721c653fe845b4ecf16c2886b2850c5901a423799795e2d2 = {length = 521, bytes = 0x62706c69 73743030 d4010203 04050607 ... 00000000 0000019b };
+>             f4899c9731c4645446bcba9e9cc482263a15081a0d6d61bd95361588bec09cd2 = {length = 521, bytes = 0x62706c69 73743030 d4010203 04050607 ... 00000000 0000019b };
+>         };
+854a901,909
+>         AdPlatformsStatusConditionSetDate = "2026-10-21 18:06:59 +0000";
+>         AppUsageBiomeStartDate = "2026-10-21 18:07:00 +0000";
+>         CurrentUpdateSource = 1;
+>         LastKnownGaletteValues =         {
+>             c2 = us;
+>             c3 = USA;
+>             fe = 0;
+>         };
+>         UpdateCleanupTime = "2026-10-21 18:07:01 +0000";
+858c913
+<         APSLastFullHandshake = "1792606010.491818";
+---
+>         APSLastFullHandshake = "1792606104.065093";
+887a943,952
+>                 tokenAcked = 0;
+>             };
+>             "com.apple.aps.FamilyControlsAgent" =             {
+>                 darkWakeEnabled = 0;
+>                 enableStatusUpdates = 1;
+>                 enabled =                 (
+>                     "com.apple.icloud-container.com.apple.FamilyControlsAgent"
+>                 );
+>                 environment = development;
+>                 processName = FamilyControlsAgent;
+921a987,998
+>                 tokenAcked = 0;
+>             };
+>             "com.apple.aps.appstored" =             {
+>                 darkWakeEnabled = 0;
+>                 enabled =                 (
+>                     "com.apple.appstored"
+>                 );
+>                 environment = development;
+>                 ignored =                 (
+>                     "com.apple.storekit"
+>                 );
+>                 processName = appstored;
+1689a1767
+>             "com.apple.bird.memory-reclaimer" = "2026-10-21 18:07:07 +0000";
+1743a1822
+>             "com.apple.email.searchIndexerBGTask" = "2026-10-21 18:06:50 +0000";
+1838c1917,1922
+<             "com.apple.jetpackassetd.postinstall"
+---
+>             "com.apple.jetpackassetd.postinstall",
+>             "com.apple.FitnessIntelligence.Scheduling.PostRestorePrivateDataActivity",
+>             "com.apple.Maps.MapsSync.migration",
+>             "com.apple.mail.legacyKeychainCleanup",
+>             "com.apple.siri.bg_system_task.post-install-asset-subscription",
+>             "com.apple.mail.fileProtectionClassMigration"
+1877a1962,1970
+>     "com.apple.contacts.postersyncd" =     {
+>         CKPerBootTasks =         (
+>             CKAccountInfoCacheReset
+>         );
+>         CKStartupTime = 1792605767;
+>         CloudKitAccountInfoCache =         {
+>             22d1a0538d856e09e254acd889f7e8accdfa8371053045bcdeda766ec7c9b687 = {length = 521, bytes = 0x62706c69 73743030 d4010203 04050607 ... 00000000 0000019b };
+>         };
+>     };
+1894a1988,1991
+>     "com.apple.coreidv.coreidvd" =     {
+>         "last-seen-coreidvd-version" = "8.504";
+>         "last-seen-region" = US;
+>     };
+1896a1994
+>             "com.apple.AppStore" = 1;
+1910a2009,2011
+>             "com.apple.spotlightknowledged.pipelines.embedding.index-processing.ab" = "61.69783103466034";
+>             "com.apple.spotlightknowledged.pipelines.embedding.index-processing.c" = "0.3812470436096191";
+>             "com.apple.spotlightknowledged.task" = "0.2277300357818604";
+1979a2081,2092
+>     };
+>     "com.apple.email.maild" =     {
+>         CKPerBootTasks =         (
+>             CKAccountInfoCacheReset
+>         );
+>         CKStartupTime = 1792605767;
+>         CloudKitAccountInfoCache =         {
+>             a80927d7659fb869fab40b5e912e64d2622c282e8b53c91aceee98d0f35051e4 = {length = 521, bytes = 0x62706c69 73743030 d4010203 04050607 ... 00000000 0000019b };
+>         };
+>         EDLegacyKeychainCleanupCompleted = 1;
+>         ToCcMigrationCompleted = 1;
+>         "set-initial-vip-flags" = 1;
+1997a2111,2113
+>         CloudKitAccountInfoCache =         {
+>             210c4646fe74acf7d8f0546ec3ecbe1eb0fff2d916e85e5b66b8adbaaadeedf3 = {length = 521, bytes = 0x62706c69 73743030 d4010203 04050607 ... 00000000 0000019b };
+>         };
+2043a2160
+>         "GKAllowNearbyMultiplayer-(null)" = 0;
+2105a2223,2225
+>         CloudKitAccountInfoCache =         {
+>             68f88d50b86377fe9cf4499ffbf0ab85be05d3d3867ca003ac1a350634e025a4 = {length = 521, bytes = 0x62706c69 73743030 d4010203 04050607 ... 00000000 0000019b };
+>         };
+2841,2842c2961
+<         BirthdayEventsGenerationAttemptsToResetKey = 1;
+<         BirthdayEventsGenerationLastAttemptTimeResetKey = "2026-10-21 18:06:07 +0000";
+---
+>         BirthdayEventsGenerationAttemptsToResetKey = 0;
+2937a3057,3058
+>         FitnessMode = 2;
+>         IsStandalonePhoneFitnessMode = 1;
+2968c3089
+<         PARAppWhitelistSignatureLastModified = "814298758.465871";
+---
+>         PARAppWhitelistSignatureLastModified = "814298820.64063";
+2981d3101
+<             98108dad9500c8a7a55c156827d53a674ba011397d590a6877b8a0e31d215a42 = {length = 521, bytes = 0x62706c69 73743030 d4010203 04050607 ... 00000000 0000019b };
+2982a3103
+>         PDLastLogDate = "2026-10-21 18:06:49 +0000";
+3257a3379,3382
+>         extraneousAlarmsCollectorContainerDeemedClean = 1;
+>         lastExtraneousAlarmsCollectorExecutionDate = "2026-10-21 18:07:34 +0000";
+>         lastSuggestedAttributesAutoTrainingExecutionDate = "2026-10-21 18:07:39 +0000";
+>         lastSuggestedAttributesAutoTrainingToken = {length = 725, bytes = 0x62706c69 73743030 d4010203 04050607 ... 00000000 00000233 };
+3390a3516,3517
+>                     itemsInstantProcessed = 0;
+>                     itemsInstantUnprocessed = 0;
+3391a3519
+>                     timeSpentProcessing = 122;
+3527a3656,3658
+>     "com.apple.uikitservices.userInterfaceStyleMode" =     {
+>         UserInterfaceStyleMode = 1;
+>     };
+3578c3709
+<             "PDChangeRegistryScheduledClientIdentifier.PDChangeRegistryScheduledActivityIdentifier" = "2026-10-21 18:05:01 +0000";
+---
+>             "PDChangeRegistryScheduledClientIdentifier.PDChangeRegistryScheduledActivityIdentifier" = "2026-11-20 18:05:01 +0000";
+3583,3585c3714,3716
+<             "PDWalletUserNotificationManager.reportDeliveredReceipts" = "2026-10-21 18:05:02 +0000";
+<             "PDWalletUserNotificationManager.syncDeliveredNotifications" = "2026-10-21 18:05:02 +0000";
+<             "PredictedTransactionNotificationCoordinator.SchedulePredictedTransactionNotification" = "2026-10-21 18:05:01 +0000";
+---
+>             "PDWalletUserNotificationManager.reportDeliveredReceipts" = "2026-10-22 18:05:02 +0000";
+>             "PDWalletUserNotificationManager.syncDeliveredNotifications" = "2026-10-21 18:35:02 +0000";
+>             "PredictedTransactionNotificationCoordinator.SchedulePredictedTransactionNotification" = "2026-10-22 18:05:01 +0000";
+3587c3718
+<             "com.apple.ClipServices.clipserviced.xpc.cleanupActivity" = "2026-10-21 18:04:23 +0000";
+---
+>             "com.apple.ClipServices.clipserviced.xpc.cleanupActivity" = "2026-10-22 18:04:23 +0000";
+3606c3737
+<             "com.apple.accounts.cleanup" = "2026-10-21 18:04:29 +0000";
+---
+>             "com.apple.accounts.cleanup" = "2026-10-21 18:09:29 +0000";
+3643a3775,3776
+>             "com.apple.email.ConversationDailyExporter" = "2026-10-21 18:07:02 +0000";
+>             "com.apple.email.ConversationPruning" = "2026-10-21 18:07:02 +0000";
+3646a3780
+>             "com.apple.email.maild.suggestionsLostMessageProcessing" = "2026-10-21 18:07:09 +0000";
+3648a3783
+>             "com.apple.emaildaemon.protecteddatabasepersistence.cleanup" = "2026-10-21 18:07:09 +0000";
+3691a3827
+>             "com.apple.message.db.vacuum" = "2026-10-21 18:07:09 +0000";
+3694a3831
+>             "com.apple.mobilemail.activity.reset-device-activity-alarms" = "2026-10-21 18:06:55 +0000";
+3710a3848,3849
+>             "com.apple.remindd.ICCloudConfigurationUpdater" = "2026-10-21 18:07:38 +0000";
+>             "com.apple.remindd.RDHousekeepingActivityScheduler" = "2026-10-21 18:07:37 +0000";
