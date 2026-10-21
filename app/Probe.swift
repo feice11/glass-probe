@@ -127,6 +127,16 @@ struct Root: View {
                     Color.clear.frame(width: 300, height: 62).glassEffect(.regular, in: .capsule)
                 case "circle":
                     Color.clear.frame(width: 62, height: 62).glassEffect(.regular, in: .circle)
+                case "card":
+                    // 通知那种横条卡片
+                    Color.clear.frame(width: 360, height: 72).glassEffect(.regular, in: .rect(cornerRadius: 24))
+                case "widget":
+                    // 小组件那种方块
+                    Color.clear.frame(width: 170, height: 170).glassEffect(.regular, in: .rect(cornerRadius: 22))
+                case "big":
+                    Color.clear.frame(width: 360, height: 180).glassEffect(.regular, in: .rect(cornerRadius: 32))
+                case "cardclear":
+                    Color.clear.frame(width: 360, height: 72).glassEffect(.clear, in: .rect(cornerRadius: 24))
                 case "clear":
                     Color.clear.frame(width: 300, height: 62).glassEffect(.clear, in: .capsule)
                 default: EmptyView()

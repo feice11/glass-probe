@@ -1,0 +1,67 @@
+name: keyfill
+on: workflow_dispatch
+permissions:
+  contents: write
+jobs:
+  shots:
+    runs-on: macos-26
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: build
+        run: |
+          set -ex
+          xcodebuild -version
+          mkdir -p Probe.app
+          xcrun -sdk iphonesimulator swiftc -parse-as-library -O \
+            -target arm64-apple-ios26.0-simulator app/Probe.swift -o Probe.app/Probe
+          cat > Probe.app/Info.plist <<'EOF'
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0"><dict>
+          <key>CFBundleIdentifier</key><string>ui.feice.probe</string>
+          <key>CFBundleExecutable</key><string>Probe</string>
+          <key>CFBundleName</key><string>Probe</string>
+          <key>CFBundlePackageType</key><string>APPL</string>
+          <key>CFBundleVersion</key><string>1</string>
+          <key>CFBundleShortVersionString</key><string>1.0</string>
+          <key>MinimumOSVersion</key><string>26.0</string>
+          <key>UIDeviceFamily</key><array><integer>1</integer></array>
+          <key>UILaunchScreen</key><dict/>
+          <key>UIRequiresFullScreen</key><true/>
+          </dict></plist>
+          EOF
+          codesign -s - --force Probe.app
+      - name: dump
+        run: |
+          set +e -x
+          RT=$(xcrun simctl list runtimes | grep -o 'com.apple.CoreSimulator.SimRuntime.iOS-26-5' | head -1)
+          TYPE=com.apple.CoreSimulator.SimDeviceType.iPhone-17-Pro-Max
+          UDID=$(xcrun simctl create probe "$TYPE" "$RT")
+          xcrun simctl boot "$UDID"
+          xcrun simctl bootstatus "$UDID" -b
+          xcrun simctl install "$UDID" Probe.app
+          mkdir -p out
+          for MODE in light dark; do
+            xcrun simctl ui "$UDID" appearance $MODE
+            for G in capsule card widget big cardclear; do
+              SC="g20 g80 hues checker"
+              for S in $SC; do
+                xcrun simctl terminate "$UDID" ui.feice.probe 2>/dev/null || true
+                xcrun simctl launch "$UDID" ui.feice.probe -scene $S -glass $G -dump 1
+                sleep 6
+                D=$(xcrun simctl get_app_container "$UDID" ui.feice.probe data)
+                cp "$D/Documents/dump.txt" "out/${MODE}_${G}_${S}.txt"
+                rm -f "$D/Documents/dump.txt"
+                xcrun simctl io "$UDID" screenshot --type=png "out/${MODE}_${G}_${S}.png"
+              done
+            done
+          done
+          cp ~/Library/Logs/DiagnosticReports/Probe* out/ 2>/dev/null; ls -la out
+      - name: push
+        run: |
+          cd out
+          git init -q -b keyfill
+          git -c user.name=probe -c user.email=probe@local add -A
+          git -c user.name=probe -c user.email=probe@local commit -qm keyfill
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" keyfill
